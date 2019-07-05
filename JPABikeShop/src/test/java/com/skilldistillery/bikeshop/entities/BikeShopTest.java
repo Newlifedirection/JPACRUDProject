@@ -1,7 +1,6 @@
 package com.skilldistillery.bikeshop.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,10 +12,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BikeShopTests {
-	
+class BikeShopTest {
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
+	private BikeShop bs;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,17 +31,19 @@ class BikeShopTests {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
+		bs = em.find(BikeShop.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
+		bs = null;
 	}
 
 	@Test
 	void test() {
-		BikeShop bs = em.find(BikeShop.class, 1);
-		assertNotNull(bs);
+//		BikeShop bs = em.find(BikeShop.class, 1);
+//		assertNotNull(bs);
 		assertEquals(1, bs.getId());
 //		fail("Not yet implemented");
 	}
