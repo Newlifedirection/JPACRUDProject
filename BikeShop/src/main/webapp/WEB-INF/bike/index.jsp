@@ -12,6 +12,7 @@
   <input type="submit" value="Show Bike" />
 </form>
   <hr>
+  <a href="showAllBikes.do">show all bikes</a>
   <ul>
   	<c:forEach var="bs" items="${BikeShop}">
   		<li> <a href="getBike.do?bsid=${bs.id}">${bs.brand}</a> </li>

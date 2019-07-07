@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity 
-public class BikeShop {
+public class Bikeshop {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -23,7 +23,7 @@ public class BikeShop {
 	public int getId() {
 		return id;
 	}
-	public BikeShop() {
+	public Bikeshop() {
 		super();
 	}
 	public void setId(int id) {
@@ -91,7 +91,7 @@ public class BikeShop {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		BikeShop other = (BikeShop) obj;
+		Bikeshop other = (Bikeshop) obj;
 		if (brand == null) {
 			if (other.brand != null)
 				return false;
@@ -126,7 +126,7 @@ public class BikeShop {
 			return false;
 		return true;
 	}
-	public BikeShop(int id, String brand, String type, String frameMaterial, String suspension, String tireSize,
+	public Bikeshop(int id, String brand, String type, String frameMaterial, String suspension, String tireSize,
 			String breakType) {
 		super();
 		this.id = id;

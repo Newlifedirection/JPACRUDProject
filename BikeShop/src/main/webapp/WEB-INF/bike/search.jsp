@@ -16,9 +16,17 @@
 </head>
 <body>
 	<form action="SearchResults.do" method="GET">
-		Bike Keyword: <input type="text" name="keyword" size="25" /> <input
+		Bike Type: <input type="text" name="type" size="25" /> <input
 			type="submit" value="Get Bike" />
 	</form>
+	<%-- <form action="SearchResults.do" method="GET">
+		Bike Frame Material: <input type="text" name="frameMaterial" size="25" /> <input
+			type="submit" value="Get Bike" />
+	</form>
+	<form action="SearchResults.do" method="GET">
+		Bike Keyword: <input type="text" name="keyword" size="25" /> <input
+			type="submit" value="Get Bike" />
+	</form> --%>
 </body>
 
 </body>

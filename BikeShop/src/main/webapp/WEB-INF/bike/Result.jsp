@@ -36,11 +36,10 @@
 				Did you delete something?</div>
 		</c:otherwise>
 	
-	<%-- 	<form action="GetFilmData.do" method="GET">
-		<input type="number" name="filmId" size="25"
-			placeholder="Enter Film ID" value="${film.filmId }" /> <input
+	<form action="CreateBikeShop.do" method="GET">
+		<input type="number" name="type" size="25" placeholder="Create" value="${bike.frame material }" /> <input
 			type="submit" value="Submit" class="btn btn-block btn-primary" />
-	</form> --%>
+	</form>
 	<form action="UpdateBikeShop.do" method="GET">
 		<input type="hidden" value="${bike.frame material }" name="frame material" /> <input
 			type="submit" value="Update" class="btn btn-block btn-warning" />

@@ -25,13 +25,11 @@
 			</tr>
 			<tr>
 				<td><strong>Frame Material :</strong></td>
-				<td><input type="text" name="frame material"
-					value="${bike.frame material}" /></td>
+				<td><input type="text" name="frame material" value="${bike.frame material}" /></td>
 			</tr>
 			<tr>
 				<td><strong>Keyword :</strong></td>
-				<td><input type="text" name="keyword"
-					value="${bike.frame material}" /></td>
+				<td><input type="text" name="keyword" value="${bike.frame material}" /></td>
 			</tr>
 			
 			

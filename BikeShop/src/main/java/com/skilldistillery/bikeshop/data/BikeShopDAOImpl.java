@@ -5,17 +5,28 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
-import com.skilldistillery.bikeshop.entities.BikeShop;
+import org.springframework.stereotype.Component;
 
+import com.skilldistillery.bikeshop.entities.Bikeshop;
+
+@Component
 public class BikeShopDAOImpl implements BikeShopDAO{
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BikeShop");
+//	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BikeShop");
 	
-	
+	@PersistenceContext
+	private EntityManager em;
 	
 	@Override
-	public BikeShop create(BikeShop bikeshop) {
-		EntityManager em = emf.createEntityManager();
+	public List<Bikeshop> findAll() {
+		String jpql = "SELECT b FROM Bikeshop b";
+		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).getResultList();
+		return bikes;
+	}
+	
+	@Override
+	public Bikeshop create(Bikeshop bikeshop) {
 		em.getTransaction().begin();
 		em.persist(bikeshop);
 		em.flush();
@@ -25,8 +36,7 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 	}
 	@Override
 	public boolean destroy(int id) {
-		EntityManager em = emf.createEntityManager();
-		BikeShop bikeshop = em.find(BikeShop.class, id);
+		Bikeshop bikeshop = em.find(Bikeshop.class, id);
 		em.getTransaction().begin();
 		em.remove(bikeshop);
 //		em.getTransaction().commit();
@@ -35,11 +45,10 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 	}
 	
 	@Override
-	public BikeShop update(int id, BikeShop bikeshop) {
-		EntityManager em = emf.createEntityManager();
+	public Bikeshop update(int id, Bikeshop bikeshop) {
 		em.getTransaction().begin();
 		
-		BikeShop managed = em.find(BikeShop.class, id);
+		Bikeshop managed = em.find(Bikeshop.class, id);
 		managed.setBikeShop(bikeshop.getBikeShop());
 		
 //		em.getTransaction().commit();
@@ -47,23 +56,23 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		return managed;
 	}
 	@Override
-	public List<BikeShop> findBikeByFrameMaterial(String frameMaterial) {
+	public List<Bikeshop> findBikeByFrameMaterial(String frameMaterial) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	@Override
-	public BikeShop findBikeByType(String type) {
+	public Bikeshop findBikeByType(String type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	@Override
-	public BikeShop findBikeByKeyword(String keyword) {
+	public Bikeshop findBikeByKeyword(String keyword) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public List<BikeShop> findBikeShopByKeyword(String kw) {
+	public List<Bikeshop> findBikeShopByKeyword(String kw) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -73,7 +82,7 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		
 	}
 	@Override
-	public BikeShop findBikeShopById(int n) {
+	public Bikeshop findBikeShopById(int n) {
 		// TODO Auto-generated method stub
 		return null;
 	}

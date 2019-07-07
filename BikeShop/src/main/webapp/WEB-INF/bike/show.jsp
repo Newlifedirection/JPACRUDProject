@@ -7,7 +7,7 @@
 <title>Bike Shop</title>
 </head>
 <body>
- <h5>${bike.brand} (${bike.frameMaterial})</h5>
+ <h5>${bike.frameMaterial} (${bike.frameMaterial})</h5>
   <p>${bike.frameMaterial}</p>
 </body>
 </html>

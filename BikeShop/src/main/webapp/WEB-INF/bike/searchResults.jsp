@@ -21,18 +21,19 @@
 			<table class="table">
 				<table class="table table-hover table-sm">
 					<tr>
-						<th scope="col">Frame Material</th>
 						<th scope="col">Type</th>
+						<!-- <th scope="col">Brand</th> -->
+						<th scope="col">Frame Material</th>
 						<th scope="col">Keyword</th>
 					</tr>
 					<c:forEach items="${bikes}" var="bike">
 						<tr>
 							<td>${bike.type}</td>
-							<td>${bike.frame material }</td>
+							<td>${bike.frameMaterial }</td>
 							<td>
 								<form action=GetBikeShopData.do method="GET">
-									<input type="hidden" value="${film.filmId }" name="bikeShop" />
-									<input type="submit" value="Details"
+									<input type="hidden" value="${bike.frameMaterial }" name="bikeShop" />
+									<input type="submit" value="Ex. Trek"
 										class="btn btn-block btn-warning" />
 								</form>
 							</td>

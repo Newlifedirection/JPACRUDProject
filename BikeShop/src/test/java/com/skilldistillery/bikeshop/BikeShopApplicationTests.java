@@ -1,4 +1,4 @@
-package com.skilldistillry.bikeshop;
+package com.skilldistillery.bikeshop;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

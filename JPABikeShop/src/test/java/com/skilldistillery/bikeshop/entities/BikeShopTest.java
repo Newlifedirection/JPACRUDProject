@@ -16,7 +16,7 @@ class BikeShopTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private BikeShop bs;
+	private Bikeshop bs;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,7 +31,7 @@ class BikeShopTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		bs = em.find(BikeShop.class, 1);
+		bs = em.find(Bikeshop.class, 1);
 	}
 
 	@AfterEach

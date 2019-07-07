@@ -2,18 +2,21 @@ package com.skilldistillery.bikeshop.data;
 
 import java.util.List;
 
-import com.skilldistillery.bikeshop.entities.BikeShop;
+import com.skilldistillery.bikeshop.entities.Bikeshop;
 
 public interface BikeShopDAO {
 	
-	public BikeShop create(BikeShop bikeshop);
-	public BikeShop update(int id, BikeShop bikeshop);
+	public Bikeshop create(Bikeshop bikeshop);
+	public Bikeshop update(int id, Bikeshop bikeshop);
 	public boolean destroy(int id);
-	public List<BikeShop> findBikeByFrameMaterial(String frameMaterial);
-	public BikeShop findBikeByType(String type);
-	public BikeShop findBikeByKeyword(String keyword);
-	public BikeShop findBikeShopById(int n);
+	
+	public List<Bikeshop> findBikeByFrameMaterial(String frameMaterial);
+	public Bikeshop findBikeByType(String type);
+	public Bikeshop findBikeByKeyword(String keyword);
+	public Bikeshop findBikeShopById(int n);
+	
 	public void deleteBikeShop(String bikeShopId);
-	List<BikeShop> findBikeShopByKeyword(String kw);
+	List<Bikeshop> findBikeShopByKeyword(String kw);
+	List<Bikeshop> findAll();
 
 }

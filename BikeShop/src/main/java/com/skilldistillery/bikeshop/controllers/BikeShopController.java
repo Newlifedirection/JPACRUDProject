@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.bikeshop.data.BikeShopDAO;
-import com.skilldistillery.bikeshop.entities.BikeShop;
+import com.skilldistillery.bikeshop.entities.Bikeshop;
 import com.skilldistillery.bikeshop.entities.Brand;
 
 @Controller
@@ -20,10 +20,34 @@ public class BikeShopController {
 	@Autowired
 	private BikeShopDAO dao;
 
-	@RequestMapping(path = "GetBikeData.do", params = "BikeShopId", method = RequestMethod.GET)
+	public BikeShopDAO getDao() {
+		return dao;
+	}
+	
+	public void setBikeShopController(BikeShopDAO dao) {
+		this.dao = dao;
+	}
+	
+	@RequestMapping(path = "/")
+	public ModelAndView index() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/bike/index.jsp");
+		return mv;
+	}
+
+	@RequestMapping(path = "showAllBikes.do")
+		public ModelAndView showAllBikes() {
+		ModelAndView mv = new ModelAndView();
+		List<Bikeshop> bikes = dao.findAll();
+		mv.addObject("bikes", bikes);
+		mv.setViewName("WEB-INF/bike/searchResults.jsp");
+		return mv;
+	}
+
+	@RequestMapping(path = "GetBikeData.do", method = RequestMethod.GET)
 	public ModelAndView getBikeId(@RequestParam(name = "BikeShopId") int n) throws SQLException {
 		ModelAndView mv = new ModelAndView();
-		BikeShop bs;
+		Bikeshop bs;
 		Brand brand;
 
 		bs = dao.findBikeShopById(n);
@@ -33,17 +57,17 @@ public class BikeShopController {
 	}
 
 	@RequestMapping(path = "AddBikeShop.do", method = RequestMethod.GET)
-	public ModelAndView addBikeShopToDatabase1(BikeShop bikeshop) {
+	public ModelAndView addBikeShopToDatabase1(Bikeshop bikeshop) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("addBike");
 		return mv;
 	}
 
 	@RequestMapping(path = "AddBikeShop.do", method = RequestMethod.POST)
-	public ModelAndView addBikeShopToDatabase(BikeShop bikeshop) throws SQLException {
+	public ModelAndView addBikeShopToDatabase(Bikeshop bikeshop) throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		int newId;
-		BikeShop newBikeShop = null;
+		Bikeshop newBikeShop = null;
 		newBikeShop = dao.create(bikeshop);
 		newId = newBikeShop.getId();
 		newBikeShop = dao.findBikeShopById(newId);
@@ -54,10 +78,10 @@ public class BikeShopController {
 	}
 
 	@RequestMapping(path = "UpdateBikeShop.do", method = RequestMethod.POST)
-	public ModelAndView updateBikeShop(BikeShop bs) throws SQLException {
+	public ModelAndView updateBikeShop(Bikeshop bs) throws SQLException {
 		ModelAndView mv = new ModelAndView();
-		BikeShop bikeShopToEdit = null;
-		List<BikeShop> bikes = null;
+		Bikeshop bikeShopToEdit = null;
+		List<Bikeshop> bikes = null;
 		bikeShopToEdit = dao.update(bs.getId(), bs);
 		bikes = dao.findBikeByFrameMaterial(bs.getFrameMaterial());
 		mv.addObject("bike", bikeShopToEdit);
@@ -67,11 +91,11 @@ public class BikeShopController {
 	}
 
 	@RequestMapping(path = "UpdateBikeShop.do", method = RequestMethod.GET)
-	public ModelAndView updateBikeShopId(BikeShop bs) throws SQLException {
+	public ModelAndView updateBikeShopId(Bikeshop bs) throws SQLException {
 		System.out.println(bs);
 		ModelAndView mv = new ModelAndView();
-		BikeShop bikeShopToEdit = null;
-		List<BikeShop> bikes = null;
+		Bikeshop bikeShopToEdit = null;
+		List<Bikeshop> bikes = null;
 
 		bikeShopToEdit = dao.update(bs.getId(), bs);
 		bikes = dao.findBikeByFrameMaterial(bs.getFrameMaterial());
@@ -104,19 +128,11 @@ public class BikeShopController {
 	@RequestMapping(path = "SearchResults.do", params = "keyword", method = RequestMethod.GET)
 	public ModelAndView findByKeyword(@RequestParam(name = "keyword") String kw) throws SQLException {
 		ModelAndView mv = new ModelAndView();
-		List<BikeShop> bikes = dao.findBikeShopByKeyword(kw);
+		List<Bikeshop> bikes = dao.findBikeShopByKeyword(kw);
 		mv.addObject("bikes", bikes);
 		mv.setViewName("searchResults");
 		return mv;
 	}
 
-	public BikeShopController(BikeShopDAO dao) {
-		super();
-		this.dao = dao;
-	}
-
-	public BikeShopController() {
-		super();
-	}
 
 }

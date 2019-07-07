@@ -57,6 +57,13 @@ INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `
 INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (8, 'Marin', 'Road', 'Steele', NULL, '700c', 'Disc');
 INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (9, 'KHS', 'Mountain', 'Steele', 'Manitou full', '26x1.25', 'Disc');
 INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (10, 'Specialized', 'Road', 'Aluminum', NULL, '700c', 'Rim');
+INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (11, 'Cannondale', 'Mountain', 'Aluminum', 'Lefty full', '27.5x3', 'Disc');
+INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (12, 'Cervelo', 'Road', 'Carbon', NULL, '700c', 'Disc');
+INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (13, 'Surley', 'Mountain', 'Steele', 'Fox Float front', '27.5x3', 'Disc');
+INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (14 , 'Breezer', 'Road', 'Aluminum', NULL, '700c', 'Disc');
+INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (15, 'Kona', 'Gravel', 'Steele', NULL, '29x2.5', 'Disc');
+INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (16, 'Specialized', 'Road', 'Steele', NULL, '700c', 'Disc');
+INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (17, 'Cannondale', 'Mountain', 'Aluminum', 'Rock Shocks full', '26x1.25', 'Disc');
 
 COMMIT;
 
