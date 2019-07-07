@@ -13,7 +13,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<a href="index.html" class="btn btn-block btn-primary">HOME</a>
+	<a href="index.jsp" class="btn btn-block btn-primary">HOME</a>
 	<a href="#" class="btn btn-block btn-success">SEARCH RESULTS</a>
 
 	<c:choose>
@@ -37,10 +37,11 @@
 							<td>${bike.suspension }</td>
 							<td>${bike.tireSize }</td>
 							<td>${bike.breakType }</td>S
-								<form action=GetBikeShopData.do method="GET">
+								<form action=GetBikeData.do method="GET">
+								
 									<input type="hidden" value="${bike.type }" name="bikeShop" />
 									<input type="hidden" value="${bike.frameMaterial }" name="bikeShop" />
-									<%-- <input type="hidden" value="${bike.keyword }" name="bikeShop" /> --%>
+									<input type="hidden" value="${bike.keyword }" name="bikeShop" />
 									<!-- <input type="submit" value="Ex. Trek"
 										class="btn btn-block btn-warning" /> -->
 								</form>

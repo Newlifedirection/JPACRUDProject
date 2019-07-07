@@ -19,7 +19,7 @@
 
 	<nav class="navbar navbar-light bg-light">
 		<a class="navbar-brand" href="#"> BIKESHOP 
-		<img src="https://picsum.photos/120/175?random=1"></a>
+		<img src="https://picsum.photos/275/175?random=1"></a>
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="bike">Search By Bike Type</span>
@@ -58,7 +58,7 @@
 			aria-pressed="true">ADD NEW BIKE</a>
 			
 			<hr>
-			<a href="showAllBikes.do">show all bikes</a>
+			<a href="showAllBikes.do">Show All Bikes</a>
 			<ul>
 				<c:forEach var="bs" items="${BikeShop}">
 					<li><a href="getBike.do?bsid=${bs.id}">${bs.brand}</a></li>

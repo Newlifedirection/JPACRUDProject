@@ -18,7 +18,6 @@
 		<c:when test="${! empty bike}">
 			<h2>${bike.brand}</h2>
 			<ul>
-				</li><img src="https://farm2.static.flickr.com/1824/29683538808_fc3f8c6686.jpg">
 				<li><strong>Frame Material:</strong> ${bike.frameMaterial}</li>
 				<li><strong>Type:</strong> ${bike.type}</li>
 				<li><strong>Keyword:</strong> ${bike.keyword}</li>
