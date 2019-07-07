@@ -22,19 +22,27 @@
 				<table class="table table-hover table-sm">
 					<tr>
 						<th scope="col">Type</th>
-						<!-- <th scope="col">Brand</th> -->
 						<th scope="col">Frame Material</th>
-						<th scope="col">Keyword</th>
+						<!-- <th scope="col">Keyword</th> -->
+						<th scope="col">Brand</th>
+						<th scope="col">Suspension</th>
+						<th scope="col">Tire Size</th>
+						<th scope="col">Break Type</th>
 					</tr>
 					<c:forEach items="${bikes}" var="bike">
 						<tr>
 							<td>${bike.type}</td>
 							<td>${bike.frameMaterial }</td>
-							<td>
+							<td>${bike.brand }</td>
+							<td>${bike.suspension }</td>
+							<td>${bike.tireSize }</td>
+							<td>${bike.breakType }</td>S
 								<form action=GetBikeShopData.do method="GET">
+									<input type="hidden" value="${bike.type }" name="bikeShop" />
 									<input type="hidden" value="${bike.frameMaterial }" name="bikeShop" />
-									<input type="submit" value="Ex. Trek"
-										class="btn btn-block btn-warning" />
+									<%-- <input type="hidden" value="${bike.keyword }" name="bikeShop" /> --%>
+									<!-- <input type="submit" value="Ex. Trek"
+										class="btn btn-block btn-warning" /> -->
 								</form>
 							</td>
 						</tr>

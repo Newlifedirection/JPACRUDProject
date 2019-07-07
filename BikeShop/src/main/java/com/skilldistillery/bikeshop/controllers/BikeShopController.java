@@ -20,13 +20,13 @@ public class BikeShopController {
 	@Autowired
 	private BikeShopDAO dao;
 
-	public BikeShopDAO getDao() {
-		return dao;
-	}
-	
-	public void setBikeShopController(BikeShopDAO dao) {
-		this.dao = dao;
-	}
+//	public BikeShopDAO getDao() {
+//		return dao;
+//	}
+//	
+//	public void setBikeShopController(BikeShopDAO dao) {
+//		this.dao = dao;
+//	}
 	
 	@RequestMapping(path = "/")
 	public ModelAndView index() {
