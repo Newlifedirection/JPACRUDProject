@@ -11,11 +11,12 @@ public interface BikeShopDAO {
 	public boolean destroy(int id);
 	
 	public List<Bikeshop> findBikeByFrameMaterial(String frameMaterial);
-	public Bikeshop findBikeByType(String type);
-	public Bikeshop findBikeByKeyword(String keyword);
+//	public Bikeshop findBikeByType(String type);
+//	public Bikeshop findBikeByKeyword(String keyword);
 	public Bikeshop findBikeShopById(int n);
 	
 	public void deleteBikeShop(String bikeShopId);
+	List<Bikeshop> findBikeByType(String kw);
 	List<Bikeshop> findBikeShopByKeyword(String kw);
 	List<Bikeshop> findAll();
 

@@ -3,8 +3,6 @@ package com.skilldistillery.bikeshop.data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Component;
@@ -61,12 +59,7 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		return null;
 	}
 	@Override
-	public Bikeshop findBikeByType(String type) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Bikeshop findBikeByKeyword(String keyword) {
+	public List<Bikeshop> findBikeByType(String type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -89,7 +82,15 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 
 	@Override
 	public List<Bikeshop> findBikeShopByKeyword(String kw) {
-		// TODO Auto-generated method stub
-		return null;
+		String jpql = "SELECT id, type, frameMaterial, brand, suspension, tireSize, breakType FROM Bikeshop WHERE brand LIKE :kw ";
+//		String sql = "SELECT id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features FROM film WHERE film.title LIKE ? OR film.description LIKE ?;";
+//		Connection conn = DriverManager.getConnection(jpql);
+//		PreparedStatement pstmt = conn.prepareStatement(jpql);
+//		pstmt.setString(1, "%" + jpql + "%");
+//		pstmt.setString(2, "%" + jpql + "%");
+//		ResultSet rs = pstmt.executeQuery();
+		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class)
+									.setParameter(kw, kw).getResultList();
+		return bikes;
 	}
 }

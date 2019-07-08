@@ -128,8 +128,10 @@ public class BikeShopController {
 	@RequestMapping(path = "SearchResults.do", params = "keyword", method = RequestMethod.GET)
 	public ModelAndView findByKeyword(@RequestParam(name = "keyword") String kw) throws SQLException {
 		ModelAndView mv = new ModelAndView();
+		System.out.println(kw);
 		List<Bikeshop> bikes = dao.findBikeShopByKeyword(kw);
 		mv.addObject("bikes", bikes);
+		System.out.println(bikes);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}

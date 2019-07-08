@@ -52,11 +52,17 @@
 				<span class="input-group-text" id="bike">Search By Keyword</span>
 			</div>
 			<br>
-			<form class="form-inline" action="SearchBikeShop.do">
+			
+			<form action="SearchResults.do" method="GET">
+						Enter Keyword: <input type="text" name="keyword" size="25" /> <input
+							type="submit" value="SUBMIT" class="btn btn-block btn-success" />
+					</form>
+					
+			<!-- <form class="form-inline" action="SearchBikeShop.do">
 				<input type="text" name="bike" id="bike" class="form-control"
 					placeholder="Ex: Specialized" aria-label="bike"
 					aria-describedby="basic-addon1">
-			</form>
+			</form> -->
 			</div>
 		<a href="AddBikeShop.do" class="btn btn-block btn-success" role="button"
 			aria-pressed="true">ADD NEW BIKE</a>

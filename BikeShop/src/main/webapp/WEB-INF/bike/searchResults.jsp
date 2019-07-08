@@ -13,7 +13,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<a href="index.jsp" class="btn btn-block btn-primary">HOME</a>
+	<a href="/" class="btn btn-block btn-primary">HOME</a>
 	<a href="#" class="btn btn-block btn-success">SEARCH RESULTS</a>
 
 	<c:choose>
