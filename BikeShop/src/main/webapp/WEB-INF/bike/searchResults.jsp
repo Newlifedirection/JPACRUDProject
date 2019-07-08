@@ -39,8 +39,7 @@
 							<td>${bike.breakType }</td>S
 								<form action=GetBikeData.do method="GET">
 									<input type="hidden" value="${bike.type }" name="bikeShop" />
-									<input type="hidden" value="${bike.frameMaterial }" name="bikeShop" />
-									
+									<%-- <input type="hidden" value="${bike.frameMaterial }" name="bikeShop" /> --%>
 									<!-- <input type="submit" value="SUBMIT" class="btn btn-block btn-warning" /> -->
 								</form>
 							</td>
