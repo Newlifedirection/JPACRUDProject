@@ -47,6 +47,7 @@ public class BikeShopController {
 	@RequestMapping(path = "GetBikeData.do", method = RequestMethod.GET)
 	public ModelAndView getBikeId(@RequestParam(name = "BikeShopId") int n) throws SQLException {
 		ModelAndView mv = new ModelAndView();
+		List<Bikeshop> bikes;
 		Bikeshop bs;
 //		Brand brand;
 
@@ -72,6 +73,7 @@ public class BikeShopController {
 		newId = newBikeShop.getId();
 		newBikeShop = dao.findBikeShopById(newId);
 		mv.addObject("bike", newBikeShop);
+		mv.addObject("newBikeShop", newBikeShop);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
