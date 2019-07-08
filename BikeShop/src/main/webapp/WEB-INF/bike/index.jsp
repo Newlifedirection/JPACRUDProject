@@ -1,5 +1,6 @@
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> --%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +25,9 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="bike">Search By Bike Type</span>
 			</div>
+			<!-- <form action="getBikeData.do" method="GET">
+			BikeShopId: <input type="text" name "bsId"/>
+			<input type="submit" value="Show Bike"/> -->
 			<br>
 			<form class="form-inline" action="SearchBikeShop.do">
 				<input type="text" name="bike" id="bike" class="form-control"
