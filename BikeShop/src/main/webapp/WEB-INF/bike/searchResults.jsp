@@ -29,7 +29,7 @@
 						<th scope="col">Tire Size</th>
 						<th scope="col">Break Type</th>
 					</tr>
-					<c:forEach items="${bikes}" var="bike">
+					<c:forEach items="${bikes}" var="bikes">
 						<tr>
 							<td>${bike.type}</td>
 							<td>${bike.frameMaterial }</td>
@@ -51,13 +51,14 @@
 				</table>
 				</c:when>
 				<c:otherwise>
-					<h2>
-						Keyword Not Found<br>Try Again
-					</h2>
+					
 					<form action="SearchResults.do" method="GET">
 						Enter Keyword: <input type="text" name="keyword" size="25" /> <input
 							type="submit" value="SUBMIT" class="btn btn-block btn-success" />
 					</form>
+					<h2>
+						Keyword Not Found<br>Try Again
+					</h2>
 				</c:otherwise>
 	</c:choose>
 

@@ -71,11 +71,11 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		return null;
 	}
 	
-	@Override
-	public List<Bikeshop> findBikeShopByKeyword(String kw) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<Bikeshop> findBikeShopByKeyword(String kw) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 	@Override
 	public void deleteBikeShop(String bikeShopId) {
 		// TODO Auto-generated method stub
@@ -83,6 +83,12 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 	}
 	@Override
 	public Bikeshop findBikeShopById(int n) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Bikeshop> findBikeShopByKeyword(String kw) {
 		// TODO Auto-generated method stub
 		return null;
 	}

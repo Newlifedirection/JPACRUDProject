@@ -50,7 +50,7 @@
 			<br>
 			<form class="form-inline" action="SearchBikeShop.do">
 				<input type="text" name="bike" id="bike" class="form-control"
-					placeholder="Ex: Trek" aria-label="bike"
+					placeholder="Ex: Specialized" aria-label="bike"
 					aria-describedby="basic-addon1">
 			</form>
 			</div>

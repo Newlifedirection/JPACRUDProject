@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.bikeshop.data.BikeShopDAO;
 import com.skilldistillery.bikeshop.entities.Bikeshop;
-import com.skilldistillery.bikeshop.entities.Brand;
+
 
 @Controller
 public class BikeShopController {
@@ -48,18 +48,18 @@ public class BikeShopController {
 	public ModelAndView getBikeId(@RequestParam(name = "BikeShopId") int n) throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		Bikeshop bs;
-		Brand brand;
+//		Brand brand;
 
 		bs = dao.findBikeShopById(n);
 		mv.addObject("bikeshop", bs);
-		mv.setViewName("result");
+		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
 
 	@RequestMapping(path = "AddBikeShop.do", method = RequestMethod.GET)
 	public ModelAndView addBikeShopToDatabase1(Bikeshop bikeshop) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("addBike");
+		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
 
@@ -72,8 +72,7 @@ public class BikeShopController {
 		newId = newBikeShop.getId();
 		newBikeShop = dao.findBikeShopById(newId);
 		mv.addObject("bike", newBikeShop);
-
-		mv.setViewName("result");
+		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
 
@@ -86,7 +85,7 @@ public class BikeShopController {
 		bikes = dao.findBikeByFrameMaterial(bs.getFrameMaterial());
 		mv.addObject("bike", bikeShopToEdit);
 		mv.addObject("bikes", bikes);
-		mv.setViewName("result");
+		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
 
@@ -101,8 +100,7 @@ public class BikeShopController {
 		bikes = dao.findBikeByFrameMaterial(bs.getFrameMaterial());
 		mv.addObject("bike", bikeShopToEdit);
 		mv.addObject("bikes", bikes);
-		mv.setViewName("updateBikeShop");
-
+		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		mv.setViewName("error");
 //			e.printStackTrace();
 
@@ -113,14 +111,14 @@ public class BikeShopController {
 	public ModelAndView delete(String bikeShopId) throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		dao.deleteBikeShop(bikeShopId);
-		mv.setViewName("result");
+		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
 
 	@RequestMapping(path = "SearchBikeShop.do", method = RequestMethod.GET)
 	public ModelAndView search() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("search");
+		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 
 	}
@@ -130,7 +128,7 @@ public class BikeShopController {
 		ModelAndView mv = new ModelAndView();
 		List<Bikeshop> bikes = dao.findBikeShopByKeyword(kw);
 		mv.addObject("bikes", bikes);
-		mv.setViewName("searchResults");
+		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
 
