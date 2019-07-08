@@ -4,11 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Component;
 
 import com.skilldistillery.bikeshop.entities.Bikeshop;
-
+@Transactional
 @Component
 public class BikeShopDAOImpl implements BikeShopDAO{
 //	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BikeShop");
@@ -90,7 +91,7 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 //		pstmt.setString(2, "%" + jpql + "%");
 //		ResultSet rs = pstmt.executeQuery();
 		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class)
-									.setParameter(kw, kw).getResultList();
+									.setParameter("kw", kw).getResultList();
 		return bikes;
 	}
 }
