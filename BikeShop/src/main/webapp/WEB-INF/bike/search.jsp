@@ -17,6 +17,10 @@
 </head>
 <body>
 	<form action="SearchResults.do" method="GET">
+		Bike Id: <input type="text" name="type" size="2" /> <input
+			type="submit" value="Get Bike" />
+	</form>
+	<form action="SearchResults.do" method="GET">
 		Bike Type: <input type="text" name="type" size="25" /> <input
 			type="submit" value="Get Bike" />
 	</form>

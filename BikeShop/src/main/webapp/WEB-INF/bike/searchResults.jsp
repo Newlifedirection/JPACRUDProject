@@ -22,9 +22,9 @@
 			<table class="table">
 				<table class="table table-hover table-sm">
 					<tr>
+						<th scope="col">Id</th>
 						<th scope="col">Type</th>
 						<th scope="col">Frame Material</th>
-
 						<th scope="col">Brand</th>
 						<th scope="col">Suspension</th>
 						<th scope="col">Tire Size</th>
@@ -32,6 +32,7 @@
 					</tr>
 					<c:forEach items="${bikes}" var="bike">
 						<tr>
+							<td>${bike.id}</td>
 							<td>${bike.type}</td>
 							<td>${bike.frameMaterial }</td>
 							<td>${bike.brand }</td>

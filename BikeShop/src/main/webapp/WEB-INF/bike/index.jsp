@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,15 +19,30 @@
 <body>
 
 	<nav class="navbar navbar-light bg-light">
-		<a class="navbar-brand" href="#"> BIKESHOP 
-		<img src="https://picsum.photos/275/175?random=1"></a>
+		<a class="navbar-brand" href="#"> BIKESHOP <img
+			src="https://picsum.photos/275/175?random=1"></a>
+			<br>
 		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="bike">Search By Bike Id</span>
+			</div>
+			<br>
+			<form class="form-inline" action="SearchBikeShop.do">
+				<!-- <input type="text" name="bike" id="bike" class="form-control"
+					placeholder="Ex: Road" aria-label="bike"
+					aria-describedby="basic-addon1"> -->
+				<form action="SearchResults.do" method="GET">
+					Enter Id: <input type="text" name="id" size="2" /> <input
+						type="submit" value="SUBMIT" class="btn btn-block btn-success" />
+				</form>
+				<br>
+			</form>
+
+
+
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="bike">Search By Bike Type</span>
 			</div>
-			<!-- <form action="getBikeData.do" method="GET">
-			BikeShopId: <input type="text" name "bsId"/>
-			<input type="submit" value="Show Bike"/> -->
 			<br>
 			<form class="form-inline" action="SearchBikeShop.do">
 				<input type="text" name="bike" id="bike" class="form-control"
@@ -36,42 +51,43 @@
 			</form>
 			<br>
 			<div class="input-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text" id="bike">Search By Frame Material</span>
-			</div>
-			<br>
-			<form class="form-inline" action="SearchBikeShop.do">
+				<form action="SearchResults.do" method="GET">
+					Enter Frame Material: <input type="text" name="keyword" size="25" />
+					<input type="submit" value="SUBMIT" class="btn btn-block btn-success" />
+					<br>
+				</form>
+				<br>
+				<form class="form-inline" action="SearchBikeShop.do">
 
-				<input type="text" name="bike" id="bike" class="form-control"
-					placeholder="Ex: Carbon" aria-label="bike"
-					aria-describedby="basic-addon1">
-			</form>
-			<br>
-			<div class="input-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text" id="bike">Search By Keyword</span>
+					<!-- <input type="text" name="bike" id="bike" class="form-control"
+						placeholder="Ex: Carbon" aria-label="bike"
+						aria-describedby="basic-addon1"> -->
+				</form>
+				<br>
+				<!-- <div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="bike">Search By Brand</span>
+					</div> -->
+				<br>
+
+				<form action="SearchResults.do" method="GET">
+					Enter Brand: <input type="text" name="keyword" size="25" /> <input
+						type="submit" value="SUBMIT" class="btn btn-block btn-success" />
+						<br>
+				</form>
+				<br>
 			</div>
-			<br>
-			
-			<form action="SearchResults.do" method="GET">
-						Enter Keyword: <input type="text" name="keyword" size="25" /> <input
-							type="submit" value="SUBMIT" class="btn btn-block btn-success" />
-					</form>
-					
-			<!-- <form class="form-inline" action="SearchBikeShop.do">
-				<input type="text" name="bike" id="bike" class="form-control"
-					placeholder="Ex: Specialized" aria-label="bike"
-					aria-describedby="basic-addon1">
-			</form> -->
-			</div>
-		<a href="AddBikeShop.do" class="btn btn-block btn-success" role="button"
-			aria-pressed="true">ADD NEW BIKE</a>
-			
+			<a href="AddBikeShop.do" class="btn btn-block btn-success"
+				role="button" aria-pressed="true">ADD NEW BIKE</a>
+			<a href="AddBikeShop.do" class="btn btn-block btn-success"
+				role="button" aria-pressed="true">Delete</a>
+
 			<hr>
 			<a href="showAllBikes.do">Show All Bikes</a>
 			<ul>
 				<c:forEach var="bs" items="${BikeShop}">
 					<li><a href="getBike.do?bsid=${bs.id}">${bs.brand}</a></li>
+					<li><a href="deleteBike.do?bsid=${bs.id}">${bs.brand}</a></li>
 				</c:forEach>
 			</ul>
 </body>

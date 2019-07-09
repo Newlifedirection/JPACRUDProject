@@ -9,7 +9,7 @@ public interface BikeShopDAO {
 	public Bikeshop create(Bikeshop bikeshop);
 	public Bikeshop update(int id, Bikeshop bikeshop);
 	public boolean destroy(int id);
-	
+	public int id(int id);
 	public List<Bikeshop> findBikeByFrameMaterial(String frameMaterial);
 //	public Bikeshop findBikeByType(String type);
 //	public Bikeshop findBikeByKeyword(String keyword);

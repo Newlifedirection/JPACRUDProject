@@ -61,35 +61,34 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 	}
 	@Override
 	public List<Bikeshop> findBikeByType(String type) {
-		// TODO Auto-generated method stub
-		return null;
+		String jpql = "SELECT b FROM Bikeshop b";
+		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).getResultList();
+		return bikes;
 	}
 	
-//	@Override
-//	public List<Bikeshop> findBikeShopByKeyword(String kw) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 	@Override
 	public void deleteBikeShop(String bikeShopId) {
+		String jpql = "SELECT b FROM Bikeshop b WERE id = bikeShopId";
+		return;
+	}
+	@Override
+	public int id(int id) {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
 	@Override
 	public Bikeshop findBikeShopById(int n) {
-		// TODO Auto-generated method stub
-		return null;
+		String jpql = "SELECT b FROM Bikeshop b WHERE b.Id =n";
+		Bikeshop bike = em.createQuery(jpql, Bikeshop.class).setParameter("n", "%" + n + "%").getSingleResult();
+		return bike;
 	}
 
 	@Override
 	public List<Bikeshop> findBikeShopByKeyword(String kw) {
 //		String jpql = "SELECT id, type, frameMaterial, brand, suspension, tireSize, breakType FROM Bikeshop WHERE brand LIKE :kw ";
 		String jpql = "SELECT b FROM Bikeshop b WHERE b.brand LIKE :kw ";
-//		String jpql = "SELECT b FROM Bikeshop b";
-//		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).getResultList();
-//		return bikes;
-//		String jpql = "SELECT b FROM Bikeshop b";
 		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).setParameter("kw", "%" + kw + "%").getResultList();
 		return bikes;
 	}
+
 }

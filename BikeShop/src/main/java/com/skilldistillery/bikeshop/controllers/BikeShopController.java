@@ -20,13 +20,6 @@ public class BikeShopController {
 	@Autowired
 	private BikeShopDAO dao;
 
-//	public BikeShopDAO getDao() {
-//		return dao;
-//	}
-//	
-//	public void setBikeShopController(BikeShopDAO dao) {
-//		this.dao = dao;
-//	}
 	
 	@RequestMapping(path = "/")
 	public ModelAndView index() {
@@ -45,14 +38,10 @@ public class BikeShopController {
 	}
 
 	@RequestMapping(path = "GetBikeData.do", method = RequestMethod.GET)
-	public ModelAndView getBikeId(@RequestParam(name = "BikeShopId") int n) throws SQLException {
+	public ModelAndView findById(@RequestParam(name = "BikeShopId") int n) throws SQLException {
 		ModelAndView mv = new ModelAndView();
-		List<Bikeshop> bikes;
-		Bikeshop bs;
-//		Brand brand;
-
-		bs = dao.findBikeShopById(n);
-		mv.addObject("bikeshop", bs);
+		Bikeshop bike = dao.findBikeShopById(n);
+		mv.addObject("bikeshop", bike);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
@@ -70,7 +59,6 @@ public class BikeShopController {
 		Bikeshop newBikeShop = dao.create(bikeshop);
 		System.out.println(newBikeShop);
 		mv.addObject("bike", newBikeShop);
-//		mv.addObject("newBikeShop", newBikeShop);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
