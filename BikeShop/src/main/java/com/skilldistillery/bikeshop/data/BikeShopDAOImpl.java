@@ -44,7 +44,7 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 	}
 	
 	@Override
-	public Bikeshop update(int id, Bikeshop bikeshop) {
+	public Bikeshop update(int id) {
 		em.getTransaction().begin();
 		
 		Bikeshop managed = em.find(Bikeshop.class, id);
@@ -91,5 +91,6 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).setParameter("kw", "%" + kw + "%").getResultList();
 		return bikes;
 	}
+
 
 }

@@ -68,7 +68,7 @@
 				</c:when>
 				<c:otherwise>
 					<h2>
-						Keyword Not Found<br>Try Again
+						Search Not Found<br>Try Again
 					</h2>
 
 					<form action="SearchResults.do" method="GET">

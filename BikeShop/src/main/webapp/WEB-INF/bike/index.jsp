@@ -28,23 +28,17 @@
 			</div>
 			<br>
 			<form class="form-inline" action="SearchBikeShop.do">
-				<!-- <input type="text" name="bike" id="bike" class="form-control"
-					placeholder="Ex: Road" aria-label="bike"
-					aria-describedby="basic-addon1"> -->
 				<form action="SearchResults.do" method="GET">
-					Enter Id: <input type="text" name="id" size="2" /> <input
+					Enter Id: <input type="number" name="id" size="2" /> <input
 						type="submit" value="SUBMIT" class="btn btn-block btn-success" />
 				</form>
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="bike">Search By Bike Id</span>
 			</div>
 			<br>
-			<form class="form-inline" action="SearchBikeShop.do">
-				<!-- <input type="text" name="bike" id="bike" class="form-control"
-					placeholder="Ex: Road" aria-label="bike"
-					aria-describedby="basic-addon1"> -->
-				<form action="SearchResults.do" method="GET">
-					Enter Id: <input type="text" name="id" size="2" /> <input
+			<!-- <form class="form-inline" action="GetBikeData.do"> -->
+				<form action="GetBikeData.do" method="GET">
+					Enter Id: <input type="number" name="id" size="2" /> <input
 						type="submit" value="SUBMIT" class="btn btn-block btn-success" />
 				</form>
 				<br>

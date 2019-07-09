@@ -7,7 +7,7 @@ import com.skilldistillery.bikeshop.entities.Bikeshop;
 public interface BikeShopDAO {
 	
 	public Bikeshop create(Bikeshop bikeshop);
-	public Bikeshop update(int id, Bikeshop bikeshop);
+	public Bikeshop update(int id);
 	public boolean destroy(int id);
 	public int id(int id);
 	public List<Bikeshop> findBikeByFrameMaterial(String frameMaterial);

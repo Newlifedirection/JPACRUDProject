@@ -38,11 +38,11 @@ public class BikeShopController {
 	}
 
 	@RequestMapping(path = "GetBikeData.do", method = RequestMethod.GET)
-	public ModelAndView findById(@RequestParam(name = "BikeShopId") int n) throws SQLException {
+	public ModelAndView findById(@RequestParam(name = "id") int n) throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		Bikeshop bike = dao.findBikeShopById(n);
-		mv.addObject("bikeshop", bike);
-		mv.setViewName("WEB-INF/bike/searchResults.jsp");
+		mv.addObject("bike", bike);
+		mv.setViewName("WEB-INF/bike/Result.jsp");
 		return mv;
 	}
 
@@ -65,13 +65,15 @@ public class BikeShopController {
 
 	@RequestMapping(path = "UpdateBikeShop.do", method = RequestMethod.POST)
 	public ModelAndView updateBikeShop(Bikeshop bs) throws SQLException {
+		System.out.println(bs);
 		ModelAndView mv = new ModelAndView();
 		Bikeshop bikeShopToEdit = null;
-		List<Bikeshop> bikes = null;
-		bikeShopToEdit = dao.update(bs.getId(), bs);
+		
+//		List<Bikeshop> bikes = null;
+		bikeShopToEdit = dao.update(bs.getId());
 //		bikes = dao.findById(bs.findBikeShopById(bs);
 		mv.addObject("bike", bikeShopToEdit);
-		mv.addObject("bikes", bikes);
+//		mv.addObject("bikes", bikes);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
@@ -81,14 +83,13 @@ public class BikeShopController {
 		System.out.println(bs);
 		ModelAndView mv = new ModelAndView();
 		Bikeshop bikeShopToEdit = null;
-		List<Bikeshop> bikes = null;
+//		List<Bikeshop> bikes = null;
 
-		bikeShopToEdit = dao.update(bs.getId(), bs);
+		bikeShopToEdit = dao.update(bs.getId());
 //		bikes = dao.findById(bs.findBikeShopById(bs);
 		mv.addObject("bike", bikeShopToEdit);
-		mv.addObject("bikes", bikes);
+//		mv.addObject("bikes", bikes);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");
-		mv.setViewName("error");
 //			e.printStackTrace();
 
 		return mv;
@@ -102,13 +103,13 @@ public class BikeShopController {
 		return mv;
 	}
 
-	@RequestMapping(path = "SearchBikeShop.do", method = RequestMethod.GET)
-	public ModelAndView search() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/bike/searchResults.jsp");
-		return mv;
-
-	}
+//	@RequestMapping(path = "SearchBikeShop.do", method = RequestMethod.GET)
+//	public ModelAndView search() {
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("WEB-INF/bike/searchResults.jsp");
+//		return mv;
+//
+//	}
 
 	@RequestMapping(path = "SearchResults.do", method = RequestMethod.GET)
 	public ModelAndView findByKeyword(@RequestParam(name = "keyword") String kw) throws SQLException {

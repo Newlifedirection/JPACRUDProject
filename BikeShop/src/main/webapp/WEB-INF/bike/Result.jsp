@@ -16,48 +16,48 @@
 	<a href="index.html" class="btn btn-block btn-primary">Home</a>
 	<c:choose>
 		<c:when test="${! empty bike}">
+			<c:forEach items="${bike }" var="bike">
 			<h2>${bike.brand}</h2>
-			<ul>
-				<li><strong>Frame Material:</strong> ${bike.frameMaterial}</li>
-				<li><strong>Type:</strong> ${bike.type}</li>
-				<li><strong>Keyword:</strong> ${bike.keyword}</li>
+				<ul>
+					<li><strong>Frame Material:</strong> ${bike.frameMaterial}</li>
+					<li><strong>Type:</strong> ${bike.type}</li>
+					<%-- <li><strong>Keyword:</strong> ${bike.keyword}</li> --%>
 
-				<c:when test="${! empty bikes }">
-					<c:forEach items="${bikes }" var="bike">
+					<c:when test="${! empty bikes }">
 						<tr>
+							<form action="GetBikeData.do" method="GET">
+								<input type="number" name="type" size="2" placeholder="id"
+									value="${bike.frame material }" /> <input type="submit"
+									value="Submit" class="btn btn-block btn-primary" />
+							</form>
+							<form action="CreateBikeShop.do" method="GET">
+								<input type="number" name="type" size="25" placeholder="Create"
+									value="${bike.frame material }" /> <input type="submit"
+									value="Submit" class="btn btn-block btn-primary" />
+							</form>
+							<form action="UpdateBikeShop.do" method="GET">
+								<input type="hidden" value="${bike.id }" name="frame material" />
+								<input type="submit" value="Update"
+									class="btn btn-block btn-warning" />
+							</form>
+							<form action="DeleteBikeShop.do" method="POST">
+								<input type="hidden" value="${bike.frame material }"
+									name="frame material" /> <input type="submit" value="Delete"
+									class="btn btn-block btn-danger" />
+							</form>
 							<td>${bike.brand }<br></td>
 						</tr>
-					</c:forEach>
-				</c:when>
+			</c:forEach>
+		</c:when>
 	</c:choose>
 	</li>
 
 	</ul>
 	</c:when>
 	<c:otherwise>
-		<div class="alert alert-primary" role="alert">Bike Not Found!
-			Did you delete something?</div>
+		<!-- <div class="alert alert-primary" role="alert">Bike Not Found!
+			Did you delete something?</div> -->
 	</c:otherwise>
 
-	<form action="GetBikeData.do" method="GET">
-		<input type="number" name="type" size="2" placeholder="id"
-			value="${bike.frame material }" /> <input type="submit"
-			value="Submit" class="btn btn-block btn-primary" />
-	</form>
-	<form action="CreateBikeShop.do" method="GET">
-		<input type="number" name="type" size="25" placeholder="Create"
-			value="${bike.frame material }" /> <input type="submit"
-			value="Submit" class="btn btn-block btn-primary" />
-	</form>
-	<form action="UpdateBikeShop.do" method="GET">
-		<input type="hidden" value="${bike.frame material }"
-			name="frame material" /> <input type="submit" value="Update"
-			class="btn btn-block btn-warning" />
-	</form>
-	<form action="DeleteBikeShop.do" method="POST">
-		<input type="hidden" value="${bike.frame material }"
-			name="frame material" /> <input type="submit" value="Delete"
-			class="btn btn-block btn-danger" />
-	</form>
 </body>
 </html>
