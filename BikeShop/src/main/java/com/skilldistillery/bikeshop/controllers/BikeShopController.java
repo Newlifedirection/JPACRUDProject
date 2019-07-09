@@ -69,7 +69,7 @@ public class BikeShopController {
 		Bikeshop bikeShopToEdit = null;
 		List<Bikeshop> bikes = null;
 		bikeShopToEdit = dao.update(bs.getId(), bs);
-		bikes = dao.findBikeByFrameMaterial(bs.getFrameMaterial());
+//		bikes = dao.findById(bs.findBikeShopById(bs);
 		mv.addObject("bike", bikeShopToEdit);
 		mv.addObject("bikes", bikes);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");
@@ -84,7 +84,7 @@ public class BikeShopController {
 		List<Bikeshop> bikes = null;
 
 		bikeShopToEdit = dao.update(bs.getId(), bs);
-		bikes = dao.findBikeByFrameMaterial(bs.getFrameMaterial());
+//		bikes = dao.findById(bs.findBikeShopById(bs);
 		mv.addObject("bike", bikeShopToEdit);
 		mv.addObject("bikes", bikes);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");

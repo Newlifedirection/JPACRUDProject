@@ -49,8 +49,9 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		
 		Bikeshop managed = em.find(Bikeshop.class, id);
 //		managed.setBikeShop(bikeshop.getBikeShop());
-		
-//		em.getTransaction().commit();
+		em.getTransaction().commit();
+		String jpql = "SELECT b FROM Bikeshop b WHERE b.brand LIKE :id ";
+		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).setParameter("id", "%" + id + "%").getResultList();
 		em.close();
 		return managed;
 	}
@@ -60,7 +61,7 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		return null;
 	}
 	@Override
-	public List<Bikeshop> findBikeByType(String type) {
+	public List<Bikeshop> findBikeByType(String brand) {
 		String jpql = "SELECT b FROM Bikeshop b";
 		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).getResultList();
 		return bikes;
