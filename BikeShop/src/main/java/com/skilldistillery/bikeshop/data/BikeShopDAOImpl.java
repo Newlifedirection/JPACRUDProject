@@ -26,11 +26,11 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 	
 	@Override
 	public Bikeshop create(Bikeshop bikeshop) {
-		em.getTransaction().begin();
+//		em.getTransaction().begin();
 		em.persist(bikeshop);
 		em.flush();
 //		em.getTransaction().commit();
-		em.clear();
+//		em.clear();
 		return bikeshop;
 	}
 	@Override
@@ -48,7 +48,7 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		em.getTransaction().begin();
 		
 		Bikeshop managed = em.find(Bikeshop.class, id);
-		managed.setBikeShop(bikeshop.getBikeShop());
+//		managed.setBikeShop(bikeshop.getBikeShop());
 		
 //		em.getTransaction().commit();
 		em.close();
@@ -83,15 +83,13 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 
 	@Override
 	public List<Bikeshop> findBikeShopByKeyword(String kw) {
-		String jpql = "SELECT id, type, frameMaterial, brand, suspension, tireSize, breakType FROM Bikeshop WHERE brand LIKE :kw ";
-//		String sql = "SELECT id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features FROM film WHERE film.title LIKE ? OR film.description LIKE ?;";
-//		Connection conn = DriverManager.getConnection(jpql);
-//		PreparedStatement pstmt = conn.prepareStatement(jpql);
-//		pstmt.setString(1, "%" + jpql + "%");
-//		pstmt.setString(2, "%" + jpql + "%");
-//		ResultSet rs = pstmt.executeQuery();
-		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class)
-									.setParameter("kw", kw).getResultList();
+//		String jpql = "SELECT id, type, frameMaterial, brand, suspension, tireSize, breakType FROM Bikeshop WHERE brand LIKE :kw ";
+		String jpql = "SELECT b FROM Bikeshop b WHERE b.brand LIKE :kw ";
+//		String jpql = "SELECT b FROM Bikeshop b";
+//		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).getResultList();
+//		return bikes;
+//		String jpql = "SELECT b FROM Bikeshop b";
+		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).setParameter("kw", "%" + kw + "%").getResultList();
 		return bikes;
 	}
 }

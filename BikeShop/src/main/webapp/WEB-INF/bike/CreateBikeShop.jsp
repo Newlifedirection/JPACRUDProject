@@ -24,8 +24,20 @@
 			</tr>
 			<tr>
 
-				<td><strong>Keyword :</strong></td>
-				<td><input type="text" name="keyword" size="30"
+				<td><strong>Brand :</strong></td>
+				<td><input type="text" name="brand" size="30"
+					placeholder="Ex: Specialized" /></td>
+			</tr>
+			<tr>
+
+				<td><strong>Tire Size :</strong></td>
+				<td><input type="text" name="tireSize" size="30"
+					placeholder="Ex: Specialized" /></td>
+			</tr>
+			<tr>
+
+				<td><strong>Break type :</strong></td>
+				<td><input type="text" name="breakType" size="30"
 					placeholder="Ex: Specialized" /></td>
 			</tr>
 			<tr>

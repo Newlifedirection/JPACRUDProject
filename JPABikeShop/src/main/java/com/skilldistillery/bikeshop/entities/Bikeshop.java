@@ -20,6 +20,13 @@ public class Bikeshop {
 	private String tireSize;
 	@Column(name="break_type")
 	private String breakType;
+//	private String keyword;
+//	public String getKeyword() {
+//		return keyword;
+//	}
+//	public void setKeyword(String keyword) {
+//		this.keyword = keyword;
+//	}
 	public int getId() {
 		return id;
 	}
@@ -126,24 +133,16 @@ public class Bikeshop {
 			return false;
 		return true;
 	}
-	public Bikeshop(int id, String brand, String type, String frameMaterial, String suspension, String tireSize,
-			String breakType) {
-		super();
-		this.id = id;
-		this.brand = brand;
-		this.type = type;
-		this.frameMaterial = frameMaterial;
-		this.suspension = suspension;
-		this.tireSize = tireSize;
-		this.breakType = breakType;
-	}
-	public Object getBikeShop() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public void setBikeShop(Object bikeShop) {
-		// TODO Auto-generated method stub
-		
-	}
+//	public Bikeshop(int id, String brand, String type, String frameMaterial, String suspension, String tireSize,
+//			String breakType) {
+//		super();
+//		this.id = id;
+//		this.brand = brand;
+//		this.type = type;
+//		this.frameMaterial = frameMaterial;
+//		this.suspension = suspension;
+//		this.tireSize = tireSize;
+//		this.breakType = breakType;
+//	}
 	
 }

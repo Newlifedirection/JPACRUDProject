@@ -18,12 +18,13 @@
 
 	<c:choose>
 		<c:when test="${! empty bikes}">
+
 			<table class="table">
 				<table class="table table-hover table-sm">
 					<tr>
 						<th scope="col">Type</th>
 						<th scope="col">Frame Material</th>
-						
+
 						<th scope="col">Brand</th>
 						<th scope="col">Suspension</th>
 						<th scope="col">Tire Size</th>
@@ -37,27 +38,43 @@
 							<td>${bike.suspension }</td>
 							<td>${bike.tireSize }</td>
 							<td>${bike.breakType }</td>S
-								<form action=GetBikeData.do method="GET">
-									<input type="hidden" value="${bike.type }" name="bikeShop" />
-									<%-- <input type="hidden" value="${bike.frameMaterial }" name="bikeShop" /> --%>
-									<!-- <input type="submit" value="SUBMIT" class="btn btn-block btn-warning" /> -->
-								</form>
+							<form action=GetBikeData.do method="GET">
+								<input type="hidden" value="${bike.type }" name="bikeShop" />
+								<%-- <input type="hidden" value="${bike.frameMaterial }" name="bikeShop" /> --%>
+								<!-- <input type="submit" value="SUBMIT" class="btn btn-block btn-warning" /> -->
+							</form>
 							</td>
 						</tr>
 					</c:forEach>
 				</table>
 				</c:when>
+
+				<c:when test="${! empty bike}">
+					<tr>
+						<td>${bike.type}</td>
+						<td>${bike.frameMaterial }</td>
+						<td>${bike.brand }</td>
+						<td>${bike.suspension }</td>
+						<td>${bike.tireSize }</td>
+						<td>${bike.breakType }</td>S
+						<form action=GetBikeData.do method="GET">
+							<input type="hidden" value="${bike.type }" name="bikeShop" />
+							<%-- <input type="hidden" value="${bike.frameMaterial }" name="bikeShop" /> --%>
+							<!-- <input type="submit" value="SUBMIT" class="btn btn-block btn-warning" /> -->
+						</form>
+						</td>
+					</tr>
+				</c:when>
 				<c:otherwise>
 					<h2>
 						Keyword Not Found<br>Try Again
 					</h2>
-					
+
 					<form action="SearchResults.do" method="GET">
 						Enter Keyword: <input type="text" name="keyword" size="25" /> <input
 							type="submit" value="SUBMIT" class="btn btn-block btn-success" />
 					</form>
 				</c:otherwise>
-	</c:choose>
-
+				</c:choose>
 </body>
 </html>

@@ -58,22 +58,19 @@ public class BikeShopController {
 	}
 
 	@RequestMapping(path = "AddBikeShop.do", method = RequestMethod.GET)
-	public ModelAndView addBikeShopToDatabase1(Bikeshop bikeshop) {
+	public ModelAndView addBikeShopToDatabase1() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/bike/searchResults.jsp");
+		mv.setViewName("WEB-INF/bike/CreateBikeShop.jsp");
 		return mv;
 	}
 
 	@RequestMapping(path = "AddBikeShop.do", method = RequestMethod.POST)
 	public ModelAndView addBikeShopToDatabase(Bikeshop bikeshop) throws SQLException {
 		ModelAndView mv = new ModelAndView();
-		int newId;
-		Bikeshop newBikeShop = null;
-		newBikeShop = dao.create(bikeshop);
-		newId = newBikeShop.getId();
-		newBikeShop = dao.findBikeShopById(newId);
+		Bikeshop newBikeShop = dao.create(bikeshop);
+		System.out.println(newBikeShop);
 		mv.addObject("bike", newBikeShop);
-		mv.addObject("newBikeShop", newBikeShop);
+//		mv.addObject("newBikeShop", newBikeShop);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
@@ -125,16 +122,14 @@ public class BikeShopController {
 
 	}
 
-	@RequestMapping(path = "SearchResults.do", params = "keyword", method = RequestMethod.GET)
+	@RequestMapping(path = "SearchResults.do", method = RequestMethod.GET)
 	public ModelAndView findByKeyword(@RequestParam(name = "keyword") String kw) throws SQLException {
+		System.out.println("******************************" + kw);
 		ModelAndView mv = new ModelAndView();
-		System.out.println(kw);
 		List<Bikeshop> bikes = dao.findBikeShopByKeyword(kw);
 		mv.addObject("bikes", bikes);
 		System.out.println(bikes);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
-
-
 }
