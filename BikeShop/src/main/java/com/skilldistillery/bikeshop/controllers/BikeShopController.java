@@ -42,7 +42,7 @@ public class BikeShopController {
 		ModelAndView mv = new ModelAndView();
 		Bikeshop bike = dao.findBikeShopById(n);
 		mv.addObject("bike", bike);
-		mv.setViewName("WEB-INF/bike/Result.jsp");
+		mv.setViewName ("WEB-INF/bike/Result.jsp");
 		return mv;
 	}
 

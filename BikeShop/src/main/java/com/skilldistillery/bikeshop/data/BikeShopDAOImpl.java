@@ -79,8 +79,8 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 	}
 	@Override
 	public Bikeshop findBikeShopById(int n) {
-		String jpql = "SELECT b FROM Bikeshop b WHERE b.Id =n";
-		Bikeshop bike = em.createQuery(jpql, Bikeshop.class).setParameter("n", "%" + n + "%").getSingleResult();
+		String jpql = "SELECT b FROM Bikeshop b WHERE b.id = :n";
+		Bikeshop bike = em.createQuery(jpql, Bikeshop.class).setParameter("n",  n).getSingleResult();
 		return bike;
 	}
 

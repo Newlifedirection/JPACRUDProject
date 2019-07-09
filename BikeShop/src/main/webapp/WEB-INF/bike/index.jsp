@@ -27,22 +27,22 @@
 				<span class="input-group-text" id="bike">Update Bike</span>
 			</div>
 			<br>
-			<form class="form-inline" action="SearchBikeShop.do">
-				<form action="SearchResults.do" method="GET">
+			<!-- <form class="form-inline" action="SearchBikeShop.do"> -->
+				<!-- <form action="SearchResults.do" method="GET">
 					Enter Id: <input type="number" name="id" size="2" /> <input
 						type="submit" value="SUBMIT" class="btn btn-block btn-success" />
-				</form>
+				</form> -->
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="bike">Search By Bike Id</span>
 			</div>
 			<br>
 			<!-- <form class="form-inline" action="GetBikeData.do"> -->
 				<form action="GetBikeData.do" method="GET">
-					Enter Id: <input type="number" name="id" size="2" /> <input
+					Enter Bike: <input type="number" name="id" size="2" /> <input
 						type="submit" value="SUBMIT" class="btn btn-block btn-success" />
 				</form>
 				<br>
-			</form>
+			<!-- </form> -->
 
 
 
@@ -69,11 +69,6 @@
 						placeholder="Ex: Carbon" aria-label="bike"
 						aria-describedby="basic-addon1"> -->
 				</form>
-				<br>
-				<!-- <div class="input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="bike">Search By Brand</span>
-					</div> -->
 				<br>
 
 				<form action="SearchResults.do" method="GET">
