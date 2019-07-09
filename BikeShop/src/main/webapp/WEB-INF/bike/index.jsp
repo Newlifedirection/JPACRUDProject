@@ -24,6 +24,18 @@
 			<br>
 		<div class="input-group">
 			<div class="input-group-prepend">
+				<span class="input-group-text" id="bike">Update Bike</span>
+			</div>
+			<br>
+			<form class="form-inline" action="SearchBikeShop.do">
+				<!-- <input type="text" name="bike" id="bike" class="form-control"
+					placeholder="Ex: Road" aria-label="bike"
+					aria-describedby="basic-addon1"> -->
+				<form action="SearchResults.do" method="GET">
+					Enter Id: <input type="text" name="id" size="2" /> <input
+						type="submit" value="SUBMIT" class="btn btn-block btn-success" />
+				</form>
+			<div class="input-group-prepend">
 				<span class="input-group-text" id="bike">Search By Bike Id</span>
 			</div>
 			<br>
@@ -41,18 +53,18 @@
 
 
 			<div class="input-group-prepend">
-				<span class="input-group-text" id="bike">Search By Bike Type</span>
+				<span class="input-group-text" id="bike">Search By Bike Brand</span>
 			</div>
 			<br>
 			<form class="form-inline" action="SearchBikeShop.do">
-				<input type="text" name="bike" id="bike" class="form-control"
+				<!-- <input type="text" name="bike" id="bike" class="form-control"
 					placeholder="Ex: Road" aria-label="bike"
-					aria-describedby="basic-addon1">
+					aria-describedby="basic-addon1"> -->
 			</form>
 			<br>
 			<div class="input-group">
 				<form action="SearchResults.do" method="GET">
-					Enter Frame Material: <input type="text" name="keyword" size="25" />
+					Enter Frame Material: <input type="text" name="keyword" size="10" />
 					<input type="submit" value="SUBMIT" class="btn btn-block btn-success" />
 					<br>
 				</form>
