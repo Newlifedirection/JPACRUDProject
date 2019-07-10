@@ -18,78 +18,19 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-light bg-light">
 		<a class="navbar-brand" href="#"> BIKESHOP <img
-			src="https://picsum.photos/275/175?random=1"></a>
+			src="https://picsum.photos/275/175?random=1"></a> <br>
 			<br>
-		<div class="input-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text" id="bike">Update Bike</span>
-			</div>
-			<br>
-			<!-- <form class="form-inline" action="SearchBikeShop.do"> -->
-				<!-- <form action="SearchResults.do" method="GET">
-					Enter Id: <input type="number" name="id" size="2" /> <input
-						type="submit" value="SUBMIT" class="btn btn-block btn-success" />
-				</form> -->
-			<div class="input-group-prepend">
-				<span class="input-group-text" id="bike">Search By Bike Id</span>
-			</div>
-			<br>
-			<!-- <form class="form-inline" action="GetBikeData.do"> -->
-				<form action="GetBikeData.do" method="GET">
-					Enter Bike: <input type="number" name="id" size="2" /> <input
-						type="submit" value="SUBMIT" class="btn btn-block btn-success" />
-				</form>
+			<form action="GetBikeData.do" method="GET">
+				Enter Bike id: <input type="number" name="id" size="2" /> <input
+					type="submit" value="Submit" class="btn btn-success" />
 				<br>
-			<!-- </form> -->
-
-
-
-			<div class="input-group-prepend">
-				<span class="input-group-text" id="bike">Search By Bike Brand</span>
-			</div>
-			<br>
-			<form class="form-inline" action="SearchBikeShop.do">
-				<!-- <input type="text" name="bike" id="bike" class="form-control"
-					placeholder="Ex: Road" aria-label="bike"
-					aria-describedby="basic-addon1"> -->
 			</form>
-			<br>
-			<div class="input-group">
-				<form action="SearchResults.do" method="GET">
-					Enter Frame Material: <input type="text" name="keyword" size="10" />
-					<input type="submit" value="SUBMIT" class="btn btn-block btn-success" />
-					<br>
-				</form>
-				<br>
-				<form class="form-inline" action="SearchBikeShop.do">
 
-					<!-- <input type="text" name="bike" id="bike" class="form-control"
-						placeholder="Ex: Carbon" aria-label="bike"
-						aria-describedby="basic-addon1"> -->
-				</form>
-				<br>
+			<a href="AddBikeShop.do" class="btn btn-success" role="button" aria-pressed="true">Add New Bike</a>
 
-				<form action="SearchResults.do" method="GET">
-					Enter Brand: <input type="text" name="keyword" size="25" /> <input
-						type="submit" value="SUBMIT" class="btn btn-block btn-success" />
-						<br>
-				</form>
-				<br>
-			</div>
-			<a href="AddBikeShop.do" class="btn btn-block btn-success"
-				role="button" aria-pressed="true">ADD NEW BIKE</a>
-			<a href="AddBikeShop.do" class="btn btn-block btn-success"
-				role="button" aria-pressed="true">Delete</a>
 
 			<hr>
 			<a href="showAllBikes.do">Show All Bikes</a>
-			<ul>
-				<c:forEach var="bs" items="${BikeShop}">
-					<li><a href="getBike.do?bsid=${bs.id}">${bs.brand}</a></li>
-					<li><a href="deleteBike.do?bsid=${bs.id}">${bs.brand}</a></li>
-				</c:forEach>
-			</ul>
 </body>
 </html>

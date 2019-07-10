@@ -13,7 +13,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<a href="index.jsp" class="btn btn-block btn-primary">HOME</a>
+	<a href="home.do" class="btn btn-block btn-primary">HOME</a>
 	<a href="AddBikeShop.do" class="btn btn-block btn-success">ADD NEW Bike</a>
 	<form action="AddBikeShop.do" modelAttribute="bike" method="POST">
 		<table class="table table-striped table-sm table-hover">

@@ -6,11 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.bikeshop.entities.Bikeshop;
 @Transactional
-@Component
+@Service
 public class BikeShopDAOImpl implements BikeShopDAO{
 //	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BikeShop");
 	
@@ -26,33 +26,29 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 	
 	@Override
 	public Bikeshop create(Bikeshop bikeshop) {
-//		em.getTransaction().begin();
 		em.persist(bikeshop);
 		em.flush();
-//		em.getTransaction().commit();
-//		em.clear();
 		return bikeshop;
 	}
 	@Override
 	public boolean destroy(int id) {
 		Bikeshop bikeshop = em.find(Bikeshop.class, id);
-		em.getTransaction().begin();
 		em.remove(bikeshop);
-//		em.getTransaction().commit();
-		em.close();
 		return true;
 	}
 	
 	@Override
-	public Bikeshop update(int id) {
-		em.getTransaction().begin();
+	public Bikeshop update(Bikeshop bs) {
 		
-		Bikeshop managed = em.find(Bikeshop.class, id);
-//		managed.setBikeShop(bikeshop.getBikeShop());
-		em.getTransaction().commit();
-		String jpql = "SELECT b FROM Bikeshop b WHERE b.brand LIKE :id ";
-		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).setParameter("id", "%" + id + "%").getResultList();
-		em.close();
+		Bikeshop managed = em.find(Bikeshop.class, bs.getId());
+		managed.setBrand(bs.getBrand());
+		managed.setBreakType(bs.getBreakType());
+		managed.setFrameMaterial(bs.getFrameMaterial());
+		managed.setSuspension(bs.getSuspension());
+		managed.setTireSize(bs.getTireSize());
+		managed.setType(bs.getType());
+		em.persist(managed);
+		
 		return managed;
 	}
 	@Override
@@ -67,11 +63,6 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		return bikes;
 	}
 	
-	@Override
-	public void deleteBikeShop(String bikeShopId) {
-		String jpql = "SELECT b FROM Bikeshop b WERE id = bikeShopId";
-		return;
-	}
 	@Override
 	public int id(int id) {
 		// TODO Auto-generated method stub

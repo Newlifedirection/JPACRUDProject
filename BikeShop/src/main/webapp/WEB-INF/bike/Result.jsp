@@ -13,52 +13,24 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<a href="index.html" class="btn btn-block btn-primary">Home</a>
-<%-- 	<c:choose>
- --%><%-- 		<c:when test="${! empty bike}">
-			<c:forEach items="${bike}"> --%>
-			<h2>${bike.brand}</h2>
-				<ul>
-					<li><strong>Frame Material:</strong> ${bike.frameMaterial}</li>
-					<li><strong>Type:</strong> ${bike.type}</li>
-					<%-- <li><strong>Keyword:</strong> ${bike.keyword}</li> --%>
+	<a href="home.do" class="btn btn-block btn-primary">Home</a>
+	<h2>${bike.brand}</h2>
+	<ul>
+		<li><strong>Frame Material:</strong> ${bike.frameMaterial}</li>
+		<li><strong>Type:</strong> ${bike.type}</li>
+		<%-- <li><strong>Keyword:</strong> ${bike.keyword}</li> --%>
 
 	</ul>
 
-				<%-- 	<c:when test="${! empty bikes }"> --%>
-					<!-- <tr> -->
-							<form action="GetBikeData.do" method="GET">
-								<input type="number" name="id" size="2"/>
-									Bike id <input type="submit"
-									value="Submit" class="btn btn-block btn-primary" />
-							</form>
-							<form action="CreateBikeShop.do" method="GET">
-								<input type="number" name="type" size="25" placeholder="Create"
-									value="${bike.frameMaterial }" /> <input type="submit"
-									value="Submit" class="btn btn-block btn-primary" />
-							</form>
-							<br>
-							<form action="UpdateBikeShop.do" method="GET">
-								<input type="hidden" value="${bike.id }" name="frame material" />
-								<input type="submit" value="Update"
-									class="btn btn-block btn-warning" />
-							</form>
-							<form action="DeleteBikeShop.do" method="POST">
-								<input type="hidden" value="${bike.frameMaterial}"
-									name="frame material" /> <input type="submit" value="Delete"
-									class="btn btn-block btn-danger" />
-							</form>
-							<%-- <td>${bike.brand }<br></td> --%>
-						<!-- </tr> -->
-					<%-- </c:when> --%>
-		<%-- 	</c:forEach> --%>
-	<%-- </c:when>
-	<c:otherwise> --%>
-
-		<!-- <div class="alert alert-primary" role="alert">Bike Not Found!
-			Did you delete something?</div> -->
-	<%-- </c:otherwise>
-	</c:choose> --%>
+	<br>
+	<form action="UpdateBikeShop.do" method="GET">
+		<input type="hidden" value="${bike.id }" name="id" /> <input
+			type="submit" value="Update" class="btn btn-block btn-warning" />
+	</form>
+	<form action="DeleteBike.do" method="POST">
+		<input type="hidden" value="${bike.id}" name="id" /> <input
+			type="submit" value="Delete" class="btn btn-block btn-danger" />
+	</form>
 
 </body>
 </html>
