@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.bikeshop.data.BikeShopDAO;
+import com.skilldistillery.bikeshop.entities.Address;
 import com.skilldistillery.bikeshop.entities.Bikeshop;
 
 
@@ -27,15 +28,16 @@ public class BikeShopController {
 		mv.setViewName("WEB-INF/bike/index.jsp");
 		return mv;
 	}
-
-	@RequestMapping(path = "showAllBikes.do")
-		public ModelAndView showAllBikes() {
+	
+	@RequestMapping(path = "GetAddress.do", method = RequestMethod.GET)
+	public ModelAndView findAddress(@RequestParam(name = "id") int n) {
 		ModelAndView mv = new ModelAndView();
-		List<Bikeshop> bikes = dao.findAll();
-		mv.addObject("bikes", bikes);
-		mv.setViewName("WEB-INF/bike/searchResults.jsp");
-		return mv;
-	}
+			Bikeshop address = dao.findBikeShopById(n);
+			mv.addObject("Address", address);
+			mv.setViewName("WEB-INF/bike/Result.jsp");
+			return mv;
+		}
+
 
 	@RequestMapping(path = "GetBikeData.do", method = RequestMethod.GET)
 	public ModelAndView findById(@RequestParam(name = "id") int n) throws SQLException {
@@ -43,6 +45,15 @@ public class BikeShopController {
 		Bikeshop bike = dao.findBikeShopById(n);
 		mv.addObject("bike", bike);
 		mv.setViewName ("WEB-INF/bike/Result.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "showAllBikes.do")
+	public ModelAndView showAllBikes() {
+		ModelAndView mv = new ModelAndView();
+		List<Bikeshop> bikes = dao.findAll();
+		mv.addObject("bikes", bikes);
+		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
 

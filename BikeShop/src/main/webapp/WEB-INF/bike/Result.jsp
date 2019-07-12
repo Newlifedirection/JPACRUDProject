@@ -18,6 +18,12 @@
 	<ul>
 		<li><strong>Frame Material:</strong> ${bike.frameMaterial}</li>
 		<li><strong>Type:</strong> ${bike.type}</li>
+		<li><strong>Brand:</strong> ${bike.brand }</li>
+		<li><strong>Street:</strong> ${bike.street }</li>
+		<li><strong>City:</strong> ${bike.city }</li>
+		<li><strong>State:</strong> ${bike.state }</li>
+		<li><stong>Zip:</stong> ${bike.zip }</li>
+		
 		<%-- <li><strong>Keyword:</strong> ${bike.keyword}</li> --%>
 
 	</ul>
@@ -31,6 +37,6 @@
 		<input type="hidden" value="${bike.id}" name="id" /> <input
 			type="submit" value="Delete" class="btn btn-block btn-danger" />
 	</form>
-
+	
 </body>
 </html>

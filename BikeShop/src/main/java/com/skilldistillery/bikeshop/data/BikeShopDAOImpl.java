@@ -1,5 +1,6 @@
 package com.skilldistillery.bikeshop.data;
 
+import java.lang.Thread.State;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,10 +9,11 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.bikeshop.entities.Address;
 import com.skilldistillery.bikeshop.entities.Bikeshop;
 @Transactional
 @Service
-public class BikeShopDAOImpl implements BikeShopDAO{
+public abstract class BikeShopDAOImpl implements BikeShopDAO{
 //	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BikeShop");
 	
 	@PersistenceContext
@@ -81,6 +83,12 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		String jpql = "SELECT b FROM Bikeshop b WHERE b.brand LIKE :kw ";
 		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).setParameter("kw", "%" + kw + "%").getResultList();
 		return bikes;
+	}
+
+	@Override
+	public Address createAddress(String street, String city, String state, String zip) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

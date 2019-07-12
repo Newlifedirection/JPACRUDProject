@@ -16,19 +16,60 @@ CREATE SCHEMA IF NOT EXISTS `bikeshopdb` DEFAULT CHARACTER SET utf8 ;
 USE `bikeshopdb` ;
 
 -- -----------------------------------------------------
+-- Table `address`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `address` ;
+
+CREATE TABLE IF NOT EXISTS `address` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `street` VARCHAR(45) NULL,
+  `city` VARCHAR(45) NULL,
+  `state` VARCHAR(45) NULL,
+  `zip` VARCHAR(10) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `brand`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `brand` ;
+
+CREATE TABLE IF NOT EXISTS `brand` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `phone` VARCHAR(10) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `bikeshop`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `bikeshop` ;
 
 CREATE TABLE IF NOT EXISTS `bikeshop` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `brand` VARCHAR(45) NOT NULL,
   `type` VARCHAR(25) NOT NULL,
   `frame_material` VARCHAR(25) NOT NULL,
   `suspension` VARCHAR(25) NULL,
   `tire_size` VARCHAR(15) NOT NULL,
   `break_type` VARCHAR(25) NOT NULL,
-  PRIMARY KEY (`id`))
+  `address_id` INT NULL,
+  `brand_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_bikeshop_address1_idx` (`address_id` ASC),
+  INDEX `fk_bikeshop_brand1_idx` (`brand_id` ASC),
+  CONSTRAINT `fk_bikeshop_address1`
+    FOREIGN KEY (`address_id`)
+    REFERENCES `address` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_bikeshop_brand1`
+    FOREIGN KEY (`brand_id`)
+    REFERENCES `brand` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 SET SQL_MODE = '';
@@ -43,27 +84,63 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
+-- Data for table `address`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `bikeshopdb`;
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (1, '150 W Colorado Ave', 'Telluride', 'CO', '81435');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `brand`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `bikeshopdb`;
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (1, 'Giant', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (2, 'Ghost', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (3, 'Heller', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (4, 'Salsa', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (5, 'Salsa', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (6, 'Specialized', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (7, 'Spot', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (8, 'Specialized', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (9, 'KHS', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (10, 'Ghost', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (11, 'Cannondale', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (12, 'Cerevello', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (13, 'Surley', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (14, 'Trek', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (15, 'Konah', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (16, 'Soma', '7191234567');
+INSERT INTO `brand` (`id`, `name`, `phone`) VALUES (17, 'Cannondale', '7191234567');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `bikeshop`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `bikeshopdb`;
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (1, 'Giant', 'Road', 'Carbon', NULL, '700x32', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (2, 'Ghost', 'Mountain', 'Carbon', 'Rock Shocks full', '27.5x2.35', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (3, 'Heller', 'Mountain', 'Carbon', 'Bluto front', '26x4.5', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (4, 'Salsa', 'Gravel', 'Steele', NULL, '700c', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (5, 'Salsa', 'Mountain', 'Aluminum', 'Rock Shocks front', '27.5x3', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (6, 'Ghost', 'Road', 'Aluminum', NULL, '700c', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (7, 'Spot', 'Road', 'Steele', NULL, '700c', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (8, 'Marin', 'Road', 'Steele', NULL, '700c', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (9, 'KHS', 'Mountain', 'Steele', 'Manitou full', '26x1.25', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (10, 'Specialized', 'Road', 'Aluminum', NULL, '700c', 'Rim');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (11, 'Cannondale', 'Mountain', 'Aluminum', 'Lefty full', '27.5x3', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (12, 'Cervelo', 'Road', 'Carbon', NULL, '700c', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (13, 'Surley', 'Mountain', 'Steele', 'Fox Float front', '27.5x3', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (14 , 'Breezer', 'Road', 'Aluminum', NULL, '700c', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (15, 'Kona', 'Gravel', 'Steele', NULL, '29x2.5', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (16, 'Specialized', 'Road', 'Steele', NULL, '700c', 'Disc');
-INSERT INTO `bikeshop` (`id`, `brand`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`) VALUES (17, 'Cannondale', 'Mountain', 'Aluminum', 'Rock Shocks full', '26x1.25', 'Disc');
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (1, 'Road', 'Carbon', NULL, '700x32', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (2, 'Mountain', 'Carbon', 'Rock Shocks full', '27.5x2.35', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (3, 'Mountain', 'Carbon', 'Bluto front', '26x4.5', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (4, 'Gravel', 'Steele', NULL, '700c', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (5, 'Mountain', 'Aluminum', 'Rock Shocks front', '27.5x3', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (6, 'Road', 'Aluminum', NULL, '700c', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (7, 'Road', 'Steele', NULL, '700c', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (8, 'Road', 'Steele', NULL, '700c', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (9, 'Mountain', 'Steele', 'Manitou full', '26x1.25', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (10, 'Road', 'Aluminum', NULL, '700c', 'Rim', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (11, 'Mountain', 'Aluminum', 'Lefty full', '27.5x3', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (12, 'Road', 'Carbon', NULL, '700c', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (13, 'Mountain', 'Steele', 'Fox Float front', '27.5x3', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (14 , 'Road', 'Aluminum', NULL, '700c', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (15, 'Gravel', 'Steele', NULL, '29x2.5', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (16, 'Road', 'Steele', NULL, '700c', 'Disc', 1, 1);
+INSERT INTO `bikeshop` (`id`, `type`, `frame_material`, `suspension`, `tire_size`, `break_type`, `address_id`, `brand_id`) VALUES (17, 'Mountain', 'Aluminum', 'Rock Shocks full', '26x1.25', 'Disc', 1, 1);
 
 COMMIT;
 
