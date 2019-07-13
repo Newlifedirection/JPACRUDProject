@@ -25,7 +25,7 @@ public interface BikeShopDAO {
 	public Brand findBrand(String b);
 	
 	public Address createAddress(String street, String city, String state, String zip);
-	
+	public Address creaAddress(Address address);
 	public List<Brand> findAllBrands();
 	public Address update(Address a);
 		

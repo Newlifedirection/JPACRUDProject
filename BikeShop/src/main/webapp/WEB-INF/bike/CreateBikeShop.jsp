@@ -45,6 +45,27 @@
 				<td><input type="text" name="frameMaterial" size="30"
 					placeholder="Ex: Steele, Aluminum, Carbon" /></td>
 			</tr>
+			<br>
+			<tr>
+				<td><strong>Street :</strong></td>
+				<td><input type="text" name="street"
+					value="${bike.address.street }" /></td>
+			</tr>
+			<tr>
+				<td><strong>City :</strong></td>
+				<td><input type="text" name="city"
+					value="${bike.address.city }" /></td>
+			</tr>
+			<tr>
+				<td><strong>State :</strong></td>
+				<td><input type="text" name="state"
+					value="${bike.address.state }" /></td>
+			</tr>
+			<tr>
+				<td><strong>Zip :</strong></td>
+				<td><input type="text" name="zip"
+					value="${bike.address.zip }" /></td>
+			</tr>
 		</table>
 		<input type="submit" value="SUBMIT" class="btn btn-block btn-warning" />
 	</form>

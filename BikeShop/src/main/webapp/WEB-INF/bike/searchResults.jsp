@@ -35,7 +35,7 @@
 						<th scope="col">State</th>
 						<th scope="col">zip</th>
 					</tr>
-					<c:forEach items="${bikes}" var="bike">
+					<%-- <c:forEach items="${bikes}" var="bike">
 						<tr>
 							<td>${bike.id}</td>
 							<td>${bike.type}</td>
@@ -50,20 +50,26 @@
 							<td>${bike.address.state }</td>
 							<td>${bike.address.zip }</td>
 						</tr>
-					</c:forEach>
+					</c:forEach> --%>
 				</table>
 				</c:when>
 
 				<c:when test="${! empty bike}">
 					<tr>
-						<td>${bike.type}</td>
-						<td>${bike.frameMaterial }</td>
-						<td>${bike.brand }</td>
-						<td>${bike.suspension }</td>
-						<td>${bike.tireSize }</td>
-						<td>${bike.breakType }</td>
-						
-							<td>${bike.address.street }</td>
+						<td>Bike type: ${bike.type}</td>
+						<br>
+						<td>Frame Material: ${bike.frameMaterial }</td>
+						<br>
+						<td>Bike Brand: ${bike.brand.name }</td>
+						<br>
+						<td>Suspension: ${bike.suspension }</td>
+						<br>
+						<td>Tire Size: ${bike.tireSize }</td>
+						<br>
+						<td>Brakes: ${bike.breakType }</td>
+						<br>
+							
+							<td>Address: ${bike.address.street }</td>
 							<td>${bike.address.city }</td>
 							<td>${bike.address.state }</td>
 							<td>${bike.address.zip }</td>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.bikeshop.data.BikeShopDAO;
+import com.skilldistillery.bikeshop.entities.Address;
 import com.skilldistillery.bikeshop.entities.Bikeshop;
 import com.skilldistillery.bikeshop.entities.Brand;
 
@@ -65,15 +66,30 @@ public class BikeShopController {
 	}
 
 	@RequestMapping(path = "AddBikeShop.do", method = RequestMethod.POST)
-	public ModelAndView addBikeShopToDatabase(Bikeshop bikeshop, @RequestParam("attachedBrand")String brand) throws SQLException {
+	public ModelAndView addBikeShopToDatabase(Bikeshop bikeshop, @RequestParam("attachedBrand")String brand,
+			String street, String city, String state, String zip) throws SQLException {
 		ModelAndView mv = new ModelAndView();
+		System.out.println(street);
+		Address address = new Address();
+		address.setStreet(street);
+		address.setCity(city);
+		address.setState(state);
+		address.setZip(zip);
+		
+		Address dataBaseAddress = dao.creaAddress(address);
+		
+		bikeshop.setAddress(dataBaseAddress);
+		System.out.println("****************************");
 		System.out.println(bikeshop);
+//		System.out.println(bikeshop.getAddress());
 		System.out.println(brand);
 		Brand bikesBrand = dao.findBrand(brand);
 		bikeshop.setBrand(bikesBrand);
 		Bikeshop newBikeShop = dao.create(bikeshop);
 		System.out.println(newBikeShop);
 		mv.addObject("bike", newBikeShop);
+		
+//		Bikeshop address = dao.createAddress(bikeshop);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
 	}
@@ -84,6 +100,7 @@ public class BikeShopController {
 		ModelAndView mv = new ModelAndView();
 		Bikeshop bikeShopToEdit = null;
 		bikeShopToEdit = dao.update(bs);
+		bikeShopToEdit = dao.create(bs);
 		mv.addObject("bike", bikeShopToEdit);
 		mv.setViewName("WEB-INF/bike/Result.jsp");
 		return mv;

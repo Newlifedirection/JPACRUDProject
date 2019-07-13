@@ -136,6 +136,13 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		return brands;
 	}
 
+	@Override
+	public Address creaAddress(Address address) {
+		em.persist(address);
+		em.flush();
+		return address;
+	}
+
 
 
 }
