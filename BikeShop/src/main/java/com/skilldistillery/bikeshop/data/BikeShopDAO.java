@@ -14,19 +14,21 @@ public interface BikeShopDAO {
 	public Bikeshop update(Bikeshop bs);
 	public boolean destroy(int id);
 	public int id(int id);
-	public List<Bikeshop> findBikeByFrameMaterial(String frameMaterial);
 	public Bikeshop findBikeShopById(int n);
-	public String createPhone(String string);
+	public List<Bikeshop> findBikeByFrameMaterial(String frameMaterial);
 	
-	List<Bikeshop> findBikeByType(String kw);
-	List<Bikeshop> findBikeShopByKeyword(String kw);
-	List<Bikeshop> findAll();
+	public List<Bikeshop> findBikeByType(String kw);
+	public List<Bikeshop> findBikeShopByKeyword(String kw);
+	public List<Bikeshop> findAll();
 	
 	public Address findAddress();
 	public Brand findBrand(String b);
-	public String findPhone(String string);
 	
 	public Address createAddress(String street, String city, String state, String zip);
+	
+	public List<Brand> findAllBrands();
+	public Address update(Address a);
+		
 	
 
 }

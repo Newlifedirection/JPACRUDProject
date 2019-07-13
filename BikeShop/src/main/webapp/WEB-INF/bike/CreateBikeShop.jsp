@@ -25,20 +25,20 @@
 			<tr>
 
 				<td><strong>Brand :</strong></td>
-				<td><input type="text" name="brand" size="30"
+				<td><input type="text" name="attachedBrand" size="30"
 					placeholder="Ex: Specialized" /></td>
 			</tr>
 			<tr>
 
 				<td><strong>Tire Size :</strong></td>
 				<td><input type="text" name="tireSize" size="30"
-					placeholder="Ex: Specialized" /></td>
+					placeholder="Ex: 27.5 3, 700c" /></td>
 			</tr>
 			<tr>
 
 				<td><strong>Break type :</strong></td>
 				<td><input type="text" name="breakType" size="30"
-					placeholder="Ex: Specialized" /></td>
+					placeholder="Ex: Road, Gravel, Mountain" /></td>
 			</tr>
 			<tr>
 				<td><strong>Frame Material</strong></td>

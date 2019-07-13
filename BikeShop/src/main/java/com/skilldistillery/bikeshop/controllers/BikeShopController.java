@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.bikeshop.data.BikeShopDAO;
-import com.skilldistillery.bikeshop.entities.Address;
 import com.skilldistillery.bikeshop.entities.Bikeshop;
+import com.skilldistillery.bikeshop.entities.Brand;
 
 
 @Controller
@@ -29,14 +29,14 @@ public class BikeShopController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "GetAddress.do", method = RequestMethod.GET)
-	public ModelAndView findAddress(@RequestParam(name = "id") int n) {
-		ModelAndView mv = new ModelAndView();
-			Bikeshop address = dao.findBikeShopById(n);
-			mv.addObject("Address", address);
-			mv.setViewName("WEB-INF/bike/Result.jsp");
-			return mv;
-		}
+//	@RequestMapping(path = "GetAddress.do", method = RequestMethod.GET)
+//	public ModelAndView findAddress(@RequestParam(name = "id") int n) {
+//		ModelAndView mv = new ModelAndView();
+//			Bikeshop address = dao.findBikeShopById(n);
+//			mv.addObject("Address", address);
+//			mv.setViewName("WEB-INF/bike/Result.jsp");
+//			return mv;
+//		}
 
 
 	@RequestMapping(path = "GetBikeData.do", method = RequestMethod.GET)
@@ -65,8 +65,12 @@ public class BikeShopController {
 	}
 
 	@RequestMapping(path = "AddBikeShop.do", method = RequestMethod.POST)
-	public ModelAndView addBikeShopToDatabase(Bikeshop bikeshop) throws SQLException {
+	public ModelAndView addBikeShopToDatabase(Bikeshop bikeshop, @RequestParam("attachedBrand")String brand) throws SQLException {
 		ModelAndView mv = new ModelAndView();
+		System.out.println(bikeshop);
+		System.out.println(brand);
+		Brand bikesBrand = dao.findBrand(brand);
+		bikeshop.setBrand(bikesBrand);
 		Bikeshop newBikeShop = dao.create(bikeshop);
 		System.out.println(newBikeShop);
 		mv.addObject("bike", newBikeShop);
@@ -79,7 +83,6 @@ public class BikeShopController {
 		System.out.println(bs);
 		ModelAndView mv = new ModelAndView();
 		Bikeshop bikeShopToEdit = null;
-		
 		bikeShopToEdit = dao.update(bs);
 		mv.addObject("bike", bikeShopToEdit);
 		mv.setViewName("WEB-INF/bike/Result.jsp");
@@ -93,7 +96,7 @@ public class BikeShopController {
 		Bikeshop bikeShopToEdit = dao.findBikeShopById(id);
 		mv.addObject("bike", bikeShopToEdit);
 		mv.setViewName("WEB-INF/bike/updateBikeShop.jsp");
-
+		mv.addObject("brands", dao.findAllBrands());
 		return mv;
 	}
 

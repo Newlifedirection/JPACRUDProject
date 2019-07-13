@@ -29,16 +29,26 @@
 						<th scope="col">Suspension</th>
 						<th scope="col">Tire Size</th>
 						<th scope="col">Break Type</th>
+						
+						<th scope="col">Street</th>
+						<th scope="col">City</th>
+						<th scope="col">State</th>
+						<th scope="col">zip</th>
 					</tr>
 					<c:forEach items="${bikes}" var="bike">
 						<tr>
 							<td>${bike.id}</td>
 							<td>${bike.type}</td>
 							<td>${bike.frameMaterial }</td>
-							<td>${bike.brand }</td>
+							<td>${bike.brand.name }</td>
 							<td>${bike.suspension }</td>
 							<td>${bike.tireSize }</td>
 							<td>${bike.breakType }</td>
+							
+							<td>${bike.address.street }</td>
+							<td>${bike.address.city }</td>
+							<td>${bike.address.state }</td>
+							<td>${bike.address.zip }</td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -53,6 +63,10 @@
 						<td>${bike.tireSize }</td>
 						<td>${bike.breakType }</td>
 						
+							<td>${bike.address.street }</td>
+							<td>${bike.address.city }</td>
+							<td>${bike.address.state }</td>
+							<td>${bike.address.zip }</td>
 					</tr>
 				</c:when>
 				<c:otherwise>
@@ -61,5 +75,6 @@
 					</h2>
 				</c:otherwise>
 				</c:choose>
+			</table>
 </body>
 </html>

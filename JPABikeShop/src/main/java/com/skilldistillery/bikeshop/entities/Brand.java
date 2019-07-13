@@ -107,7 +107,7 @@ public class Brand {
 
 	@Override
 	public String toString() {
-		return "Brand [id=" + id + ", name=" + name + ", phone=" + phone + ", bikeshops=" + bikeshops + "]";
+		return "Brand [id=" + id + ", name=" + name + ", phone=" + phone + "]";
 	}
 
 
