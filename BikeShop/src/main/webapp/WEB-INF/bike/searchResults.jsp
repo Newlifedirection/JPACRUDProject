@@ -29,50 +29,56 @@
 						<th scope="col">Suspension</th>
 						<th scope="col">Tire Size</th>
 						<th scope="col">Break Type</th>
-						
+
 						<th scope="col">Street</th>
 						<th scope="col">City</th>
 						<th scope="col">State</th>
 						<th scope="col">zip</th>
 					</tr>
-					<%-- <c:forEach items="${bikes}" var="bike">
+					<c:forEach items="${bikes}" var="bike">
 						<tr>
 							<td>${bike.id}</td>
-							<td>${bike.type}</td>
-							<td>${bike.frameMaterial }</td>
-							<td>${bike.brand.name }</td>
-							<td>${bike.suspension }</td>
-							<td>${bike.tireSize }</td>
-							<td>${bike.breakType }</td>
+							<td>Bike type: ${bike.type}</td>
 							
-							<td>${bike.address.street }</td>
-							<td>${bike.address.city }</td>
-							<td>${bike.address.state }</td>
-							<td>${bike.address.zip }</td>
+							<td>Frame Material: ${bike.frameMaterial }</td>
+							
+							<td>Bike Brand: ${bike.brand.name }</td>
+							
+							<td>Suspension: ${bike.suspension }</td>
+							
+							<td>Tire Size: ${bike.tireSize }</td>
+							
+							<td>Brakes: ${bike.breakType }</td>
+							
+
+							<td>Street: ${bike.address.street }</td>
+							<td>City: ${bike.address.city }</td>
+							<td>State: ${bike.address.state }</td>
+							<td>Zip: ${bike.address.zip }</td>
 						</tr>
-					</c:forEach> --%>
+					</c:forEach>
 				</table>
 				</c:when>
 
 				<c:when test="${! empty bike}">
 					<tr>
 						<td>Bike type: ${bike.type}</td>
-						<br>
+						
 						<td>Frame Material: ${bike.frameMaterial }</td>
-						<br>
+						
 						<td>Bike Brand: ${bike.brand.name }</td>
-						<br>
+						
 						<td>Suspension: ${bike.suspension }</td>
-						<br>
+						
 						<td>Tire Size: ${bike.tireSize }</td>
-						<br>
+						r>
 						<td>Brakes: ${bike.breakType }</td>
-						<br>
-							
-							<td>Address: ${bike.address.street }</td>
-							<td>${bike.address.city }</td>
-							<td>${bike.address.state }</td>
-							<td>${bike.address.zip }</td>
+						
+
+						<td>Address: ${bike.address.street }</td>
+						<td>${bike.address.city }</td>
+						<td>${bike.address.state }</td>
+						<td>${bike.address.zip }</td>
 					</tr>
 				</c:when>
 				<c:otherwise>

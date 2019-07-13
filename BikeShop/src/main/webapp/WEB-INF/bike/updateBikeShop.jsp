@@ -28,9 +28,9 @@
 				<td><input type="text" name="frameMaterial"
 					value="${bike.frameMaterial }" /></td>
 			</tr>
-			<select name="brand.id">
+			<select name="BrandId">
 			<c:forEach var="b" items="${brands }"> 
-				<option value="${b.id }">${b.name }</option>
+				<option value="${b.name }">${b.name }</option>
 			</c:forEach>
 				
 			</select>

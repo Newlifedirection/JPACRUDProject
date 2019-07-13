@@ -53,6 +53,8 @@ public class BikeShopController {
 	public ModelAndView showAllBikes() {
 		ModelAndView mv = new ModelAndView();
 		List<Bikeshop> bikes = dao.findAll();
+		System.out.println("++++++++++++++++++++++++++++++++");
+		System.out.println(bikes);
 		mv.addObject("bikes", bikes);
 		mv.setViewName("WEB-INF/bike/searchResults.jsp");
 		return mv;
@@ -95,12 +97,16 @@ public class BikeShopController {
 	}
 
 	@RequestMapping(path = "UpdateBikeShop.do", method = RequestMethod.POST)
-	public ModelAndView updateBikeShop(Bikeshop bs) throws SQLException {
+	public ModelAndView updateBikeShop(Bikeshop bs,@RequestParam("BrandId")String BrandId) throws SQLException {
 		System.out.println(bs);
+		System.out.println("#####################################################################");
+		System.out.println(BrandId);
+		Brand managedBrand = dao.findBrand(BrandId);
 		ModelAndView mv = new ModelAndView();
 		Bikeshop bikeShopToEdit = null;
+		bs.setBrand(managedBrand);
 		bikeShopToEdit = dao.update(bs);
-		bikeShopToEdit = dao.create(bs);
+//		bikeShopToEdit = dao.create(bs);
 		mv.addObject("bike", bikeShopToEdit);
 		mv.setViewName("WEB-INF/bike/Result.jsp");
 		return mv;

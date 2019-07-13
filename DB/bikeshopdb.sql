@@ -51,10 +51,10 @@ DROP TABLE IF EXISTS `bikeshop` ;
 CREATE TABLE IF NOT EXISTS `bikeshop` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(25) NOT NULL,
-  `frame_material` VARCHAR(25) NOT NULL,
+  `frame_material` VARCHAR(25) NULL,
   `suspension` VARCHAR(25) NULL,
-  `tire_size` VARCHAR(15) NOT NULL,
-  `break_type` VARCHAR(25) NOT NULL,
+  `tire_size` VARCHAR(15) NULL,
+  `break_type` VARCHAR(25) NULL,
   `address_id` INT NULL,
   `brand_id` INT NULL,
   PRIMARY KEY (`id`),
