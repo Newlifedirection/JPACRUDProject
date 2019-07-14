@@ -1,7 +1,7 @@
 ## JPACRUDProject
 
 ### Week 10 HomeWork Project for Skill Distillery
-JPACRUDProjectWithTables
+JPACRUDProjectWithMultipleTablesInDB
 
 ### Overview
 Web Application using Java 8 JDBC JPA to perform CRUD Operations using mySql/SQL. User can add Bike Shop or query for Bikes by id or keyword, update brand, bike info, and address.
