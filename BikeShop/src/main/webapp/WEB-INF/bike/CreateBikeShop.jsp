@@ -25,25 +25,46 @@
 			<tr>
 
 				<td><strong>Brand :</strong></td>
-				<td><input type="text" name="brand" size="30"
+				<td><input type="text" name="attachedBrand" size="30"
 					placeholder="Ex: Specialized" /></td>
 			</tr>
 			<tr>
 
 				<td><strong>Tire Size :</strong></td>
 				<td><input type="text" name="tireSize" size="30"
-					placeholder="Ex: Specialized" /></td>
+					placeholder="Ex: 27.5 3, 700c" /></td>
 			</tr>
 			<tr>
 
 				<td><strong>Break type :</strong></td>
 				<td><input type="text" name="breakType" size="30"
-					placeholder="Ex: Specialized" /></td>
+					placeholder="Ex: Road, Gravel, Mountain" /></td>
 			</tr>
 			<tr>
 				<td><strong>Frame Material</strong></td>
 				<td><input type="text" name="frameMaterial" size="30"
 					placeholder="Ex: Steele, Aluminum, Carbon" /></td>
+			</tr>
+			<br>
+			<tr>
+				<td><strong>Street :</strong></td>
+				<td><input type="text" name="street"
+					value="${bike.address.street }" /></td>
+			</tr>
+			<tr>
+				<td><strong>City :</strong></td>
+				<td><input type="text" name="city"
+					value="${bike.address.city }" /></td>
+			</tr>
+			<tr>
+				<td><strong>State :</strong></td>
+				<td><input type="text" name="state"
+					value="${bike.address.state }" /></td>
+			</tr>
+			<tr>
+				<td><strong>Zip :</strong></td>
+				<td><input type="text" name="zip"
+					value="${bike.address.zip }" /></td>
 			</tr>
 		</table>
 		<input type="submit" value="SUBMIT" class="btn btn-block btn-warning" />

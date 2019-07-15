@@ -14,11 +14,17 @@
 </head>
 <body>
 	<a href="home.do" class="btn btn-block btn-primary">Home</a>
-	<h2>${bike.brand}</h2>
+	<h2>${bike.brand.name}</h2>
 	<ul>
 		<li><strong>Frame Material:</strong> ${bike.frameMaterial}</li>
 		<li><strong>Type:</strong> ${bike.type}</li>
-		<%-- <li><strong>Keyword:</strong> ${bike.keyword}</li> --%>
+		<li><strong>Brand:</strong> ${bike.brand.name }</li>
+		<br>
+		<li><strong>Street:</strong> ${bike.address.street }</li>
+		<li><strong>City:</strong> ${bike.address.city }</li>
+		<li><strong>State:</strong> ${bike.address.state }</li>
+		<li><stong>Zip:</stong> ${bike.address.zip }</li>
+		
 
 	</ul>
 
@@ -31,6 +37,6 @@
 		<input type="hidden" value="${bike.id}" name="id" /> <input
 			type="submit" value="Delete" class="btn btn-block btn-danger" />
 	</form>
-
+	
 </body>
 </html>

@@ -8,13 +8,9 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
     
-    <class>com.skilldistillery.bikeshop.entities.BikeShop</class>
-   <!--  <class>com.skilldistillery.jpabikeshop.entities.Brand</class>
-    <class>com.skilldistillery.jpabikeshop.entities.BreakType</class>
-    <class>com.skilldistillery.jpabikeshop.entities.FrameMaterial</class>
-    <class>com.skilldistillery.jpabikeshop.entities.Suspension</class>
-    <class>com.skilldistillery.jpabikeshop.entities.TireWheelSize</class>
-    <class>com.skilldistillery.jpabikeshop.entities.Type</class> -->
+    <class>com.skilldistillery.bikeshop.entities.Address</class>
+    <class>com.skilldistillery.bikeshop.entities.Bikeshop</class>
+    <class>com.skilldistillery.bikeshop.entities.Brand</class>
    
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bikeshopdb?useSSL=false" />

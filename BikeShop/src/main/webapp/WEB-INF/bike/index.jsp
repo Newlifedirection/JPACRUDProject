@@ -17,7 +17,7 @@
 
 </head>
 <body>
-
+		
 		<a class="navbar-brand" href="#"> BIKESHOP <img
 			src="https://picsum.photos/275/175?random=1"></a> <br>
 			<br>

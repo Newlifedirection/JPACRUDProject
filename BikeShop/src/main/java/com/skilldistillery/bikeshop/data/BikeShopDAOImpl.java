@@ -1,5 +1,6 @@
 package com.skilldistillery.bikeshop.data;
 
+import java.lang.Thread.State;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,7 +9,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.bikeshop.entities.Address;
 import com.skilldistillery.bikeshop.entities.Bikeshop;
+import com.skilldistillery.bikeshop.entities.Brand;
 @Transactional
 @Service
 public class BikeShopDAOImpl implements BikeShopDAO{
@@ -41,16 +44,39 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 	public Bikeshop update(Bikeshop bs) {
 		
 		Bikeshop managed = em.find(Bikeshop.class, bs.getId());
-		managed.setBrand(bs.getBrand());
+		Brand brands = em.find(Brand.class, bs.getBrand().getId());
+		System.out.println(bs.getAddress().getId());
+		Address managedAddress = em.find(Address.class, bs.getAddress().getId());
+		managedAddress.setStreet(bs.getAddress().getStreet());
+		managedAddress.setCity(bs.getAddress().getCity());
+		managedAddress.setState(bs.getAddress().getState());
+		managedAddress.setZip(bs.getAddress().getZip());
+		em.persist(managedAddress);
+		managed.setAddress(managedAddress);
+		managed.setBrand(brands);
 		managed.setBreakType(bs.getBreakType());
 		managed.setFrameMaterial(bs.getFrameMaterial());
 		managed.setSuspension(bs.getSuspension());
 		managed.setTireSize(bs.getTireSize());
-		managed.setType(bs.getType());
+		
 		em.persist(managed);
 		
 		return managed;
 	}
+	
+	@Override
+	public Address update(Address a) {
+		Address managed1 = em.find(Address.class, a.getId());
+		
+		managed1.setStreet(a.getStreet());
+		managed1.setCity(a.getCity());
+		managed1.setState(a.getState());
+		managed1.setZip(a.getZip());
+		em.persist(managed1);
+		
+		return managed1;
+	}
+	
 	@Override
 	public List<Bikeshop> findBikeByFrameMaterial(String frameMaterial) {
 		// TODO Auto-generated method stub
@@ -82,6 +108,41 @@ public class BikeShopDAOImpl implements BikeShopDAO{
 		List<Bikeshop> bikes = em.createQuery(jpql, Bikeshop.class).setParameter("kw", "%" + kw + "%").getResultList();
 		return bikes;
 	}
+
+	@Override
+	public Address createAddress(String street, String city, String state, String zip) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Address findAddress() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Brand findBrand(String b) {
+		String jpql = "SELECT b FROM Brand b WHERE b.name = :input";
+		Brand brand = em.createQuery(jpql, Brand.class).setParameter("input", b).getSingleResult();
+		return brand;
+	}
+
+	@Override
+	public List<Brand> findAllBrands() {
+		String jpql = "SELECT b FROM Brand b";
+		List<Brand> brands = em.createQuery(jpql, Brand.class).getResultList();
+		return brands;
+	}
+
+	@Override
+	public Address creaAddress(Address address) {
+		em.persist(address);
+		em.flush();
+		return address;
+	}
+
 
 
 }
