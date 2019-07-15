@@ -12,4 +12,4 @@ relationships as well as primary/foreign keys. Created branch in git and github 
 git/gitHub, mySqlL, MAMP, Spring Tool Suite/Eclipse, Gradle, Maven, Java 8, Java JDBC API, Java Server Pages, SQL DML/DDL, HTML, Bootstrap Framework/CSS, Spring MVC Pattern, DAO Pattern, Singleton Selector Pattern
 
 ### Lessons Learned
-Learned the key aspects of the Spring JPA. CRUD operation considerations to read, update, and maintain a database table. Annotation driven @RequestMapping with controllers to set the view. Document Descriptor Stub: web.xml Definition file for welcome-file-list and as well as servlet, servlet-name and servlet-mapping.
+Learned the key aspects of the Spring JPA. CRUD operation considerations to read, update, and maintain a database table. Annotation driven @RequestMapping with controllers to set the view. Learned to how tables relate to oneanother in db.
